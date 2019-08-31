@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useAsyncEffect } from '../../util/hooks';
 import { Theme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/styles';
-import logo from './logo.svg';
 import './App.css';
 import '../../assets/css/Main.css';
 
@@ -54,21 +53,10 @@ const App: React.FunctionComponent = () => {
 
   return (
     <AppContext.Provider value={appStore}>
+      <p>
+        Connected to <AppTitle />, {theAnswer}
+      </p>
       <ProfileContainer />
-      <div className={classes.root}>
-        <header className={classes.header}>
-          <img src={logo} className={classes.logo} alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <p>
-            Connected to <AppTitle />, {theAnswer}
-          </p>
-          <a className={classes.link} href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-            Learn React
-          </a>
-        </header>
-      </div>
     </AppContext.Provider>
   );
 };

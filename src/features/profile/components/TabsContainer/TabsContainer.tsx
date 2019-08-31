@@ -21,6 +21,13 @@ const mapStateToProps = (state: any) => {
 
 const TabsContainer: React.FC = () => {
   const [value, setValue] = React.useState(0);
+  function TabProps(index: any) {
+    return {
+      id: `scrollable-force-tab-${index}`,
+      // tslint:disable-next-line: object-literal-sort-keys
+      'aria-controls': `scrollable-force-tabpanel-${index}`
+    };
+  }
   function handleChange(event: React.ChangeEvent<{}>, newValue: number) {
     //  store.dispatch( addArticle({ title: "React Redux Tutorial for Beginners", id: 1 }) )
     //   console.log(store.getState());
@@ -70,13 +77,6 @@ const TabsContainer: React.FC = () => {
         <Box p={3}>{children}</Box>
       </Typography>
     );
-  }
-  function TabProps(index: any) {
-    return {
-      id: `scrollable-force-tab-${index}`,
-      // tslint:disable-next-line: object-literal-sort-keys
-      'aria-controls': `scrollable-force-tabpanel-${index}`
-    };
   }
 };
 

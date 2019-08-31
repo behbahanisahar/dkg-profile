@@ -1,4 +1,3 @@
-import { textAlign } from '@material-ui/system';
 import { MDBCard, MDBCol, MDBContainer, MDBMask, MDBRow } from 'mdbreact';
 import React from 'react';
 import proImage from '../../../assets/img/card-profile5-square.jpg';

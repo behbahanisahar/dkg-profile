@@ -1,4 +1,4 @@
-import { MDBCol, MDBView } from 'mdbreact';
+import { MDBCol } from 'mdbreact';
 import React from 'react';
 import HeaderImg from '../../../../assets/img/profile-bg.jpg';
 

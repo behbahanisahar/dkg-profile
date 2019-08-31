@@ -53,9 +53,9 @@ const App: React.FunctionComponent = () => {
 
   return (
     <AppContext.Provider value={appStore}>
-      <p>
+      <div className={classes.link}>
         Connected to <AppTitle />, {theAnswer}
-      </p>
+      </div>
       <ProfileContainer />
     </AppContext.Provider>
   );

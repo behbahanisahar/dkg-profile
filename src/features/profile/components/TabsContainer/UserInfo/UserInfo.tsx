@@ -85,13 +85,13 @@ const UserInfo: React.FunctionComponent = () => {
       <TabPanel value={value} index={0}>
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-            <Typography>
+            <div>
               <Person color="primary" />
               اطلاعات عمومی
-            </Typography>
+            </div>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <Typography>
+            <div>
               <MDBRow>
                 <MDBCol md="3">
                   <MDBInput size="sm" label="نام" type="text" value="سحر" disabled={true} />
@@ -134,18 +134,18 @@ const UserInfo: React.FunctionComponent = () => {
                   <MDBInput size="sm" label="کد ملی" value="0015366278" disabled={true} />
                 </MDBCol>
               </MDBRow>
-            </Typography>
+            </div>
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2a-content" id="panel2a-header">
-            <Typography>
+            <div>
               <Book color="primary" />
               اطلاعات تحصیلی
-            </Typography>
+            </div>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <Typography>
+            <div>
               <MDBRow>
                 <MDBCol md="3">
                   <MDBInput size="sm" label="مدرک تحصیلی" value="کارشناسی ارشد" disabled={true} />
@@ -160,18 +160,18 @@ const UserInfo: React.FunctionComponent = () => {
                   <MDBInput size="sm" label="محل تحصیل" value="تهران" disabled={true} />
                 </MDBCol>
               </MDBRow>
-            </Typography>
+            </div>
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2a-content" id="panel2a-header">
-            <Typography>
+            <div>
               <Navigation color="primary" />
               اطلاعات محل سکونت
-            </Typography>
+            </div>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <Typography>
+            <div>
               <MDBRow>
                 <MDBCol md="3">
                   <MDBInput size="sm" label="شماره منزل" value="213242434" disabled={true} />
@@ -183,7 +183,7 @@ const UserInfo: React.FunctionComponent = () => {
                   <MDBInput size="sm" label="آدرس" value=" lorem epsum   ddddsfdsfsdffsdfs " disabled={true} />
                 </MDBCol>
               </MDBRow>
-            </Typography>
+            </div>
           </ExpansionPanelDetails>
         </ExpansionPanel>
       </TabPanel>

@@ -5,7 +5,6 @@ const runAll = require('npm-run-all');
 const args = process.argv.slice(2);
 
 require('dotenv').config();
-console.log(process.env.SPRestProxy_ConfigPath);
 const RestProxy = require('sp-rest-proxy/dist/RestProxy');
 const settings = {
   configPath: process.env.SPRestProxy_ConfigPath || './sp-rest-proxy/private.json',

@@ -1,8 +1,8 @@
-import { sp } from '@pnp/sp';
+import { sp } from "@pnp/sp";
 
 export class SPRestService implements SPService {
   public async getRootWebTitle() {
-    const fields = await sp.web.select('Title').get();
+    const fields = await sp.web.select("Title").get();
     return fields.Title;
   }
 

@@ -1,13 +1,13 @@
-import { Box, Typography } from '@material-ui/core';
-import AppBar from '@material-ui/core/AppBar';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import HelpIcon from '@material-ui/icons/Help';
-import PersonPinIcon from '@material-ui/icons/PersonPin';
-import PhoneIcon from '@material-ui/icons/Phone';
-import React from 'react';
-import UserInfo from './UserInfo/UserInfo';
+import { Box, Typography } from "@material-ui/core";
+import AppBar from "@material-ui/core/AppBar";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import HelpIcon from "@material-ui/icons/Help";
+import PersonPinIcon from "@material-ui/icons/PersonPin";
+import PhoneIcon from "@material-ui/icons/Phone";
+import React from "react";
+import UserInfo from "./UserInfo/UserInfo";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -21,7 +21,7 @@ const TabsContainer: React.FC = () => {
     return {
       id: `scrollable-force-tab-${index}`,
       // tslint:disable-next-line: object-literal-sort-keys
-      'aria-controls': `scrollable-force-tabpanel-${index}`
+      "aria-controls": `scrollable-force-tabpanel-${index}`,
     };
   }
   function handleChange() {
@@ -35,7 +35,7 @@ const TabsContainer: React.FC = () => {
         <AppBar position="static" color="default">
           <Tabs
             value={value}
-            style={{ margin: 'auto' }}
+            style={{ margin: "auto" }}
             onChange={handleChange}
             variant="scrollable"
             scrollButtons="on"
@@ -69,7 +69,14 @@ const TabsContainer: React.FC = () => {
     const { children, value, index, ...other } = props;
 
     return (
-      <Typography component="div" role="tabpanel" hidden={value !== index} id={`scrollable-force-tabpanel-${index}`} aria-labelledby={`scrollable-force-tab-${index}`} {...other}>
+      <Typography
+        component="div"
+        role="tabpanel"
+        hidden={value !== index}
+        id={`scrollable-force-tabpanel-${index}`}
+        aria-labelledby={`scrollable-force-tab-${index}`}
+        {...other}
+      >
         <Box p={3}>{children}</Box>
       </Typography>
     );

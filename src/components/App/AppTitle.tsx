@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { useAsyncEffect } from '../../util/hooks';
-import { useAppValue } from '../../AppContext';
+import React, { useState } from "react";
+import { useAsyncEffect } from "../../util/hooks";
+import { useAppValue } from "../../AppContext";
 
 export const AppTitle: React.FunctionComponent = () => {
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState("");
   const context = useAppValue();
 
   useAsyncEffect(async () => {

@@ -1,19 +1,19 @@
-import nock from 'nock';
+import nock from "nock";
 
-import { AppRestService } from './AppService';
-import { baseUrl, setupFixture } from '../util/testUtils';
+import { AppRestService } from "./AppService";
+import { baseUrl, setupFixture } from "../util/testUtils";
 
-it('can be constructed with default constructor', async () => {
+it("can be constructed with default constructor", async () => {
   await setupFixture();
 
   const appService = new AppRestService();
   expect(appService.webFullUrl).toEqual(window.location.href);
 });
 
-it('retrieves the answer to life the universe and everything', async () => {
+it("retrieves the answer to life the universe and everything", async () => {
   await setupFixture();
-  nock.back.setMode('record');
-  const { nockDone } = await nock.back('/AppService.test/retrievesTheAnswerToLifeTheUniverseAndEverything.json');
+  nock.back.setMode("record");
+  const { nockDone } = await nock.back("/AppService.test/retrievesTheAnswerToLifeTheUniverseAndEverything.json");
 
   const appService = new AppRestService(baseUrl);
 
@@ -21,5 +21,5 @@ it('retrieves the answer to life the universe and everything', async () => {
   expect(theAnswer).toStrictEqual(42);
 
   nockDone();
-  nock.back.setMode('wild');
+  nock.back.setMode("wild");
 });

@@ -1,13 +1,13 @@
-import nock from 'nock';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import { act } from 'react-test-renderer';
-import { sp } from '@pnp/sp';
-import path from 'path';
+import nock from "nock";
+import Enzyme from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+import { act } from "react-test-renderer";
+import { sp } from "@pnp/sp";
+import path from "path";
 
 let isFixtureSetup = false;
 
-export const baseUrl = 'http://localhost:3001/';
+export const baseUrl = "http://localhost:3001/";
 
 export const setupFixture = () => {
   if (isFixtureSetup) {
@@ -15,7 +15,7 @@ export const setupFixture = () => {
   }
 
   // Configure Nock...
-  const fixturesPath = path.resolve('./nock_fixtures');
+  const fixturesPath = path.resolve("./nock_fixtures");
   nock.back.fixtures = fixturesPath;
 
   // Configure Enyme.
@@ -26,9 +26,9 @@ export const setupFixture = () => {
     sp: {
       baseUrl: baseUrl,
       headers: {
-        Accept: 'application/json;odata=verbose'
-      }
-    }
+        Accept: "application/json;odata=verbose",
+      },
+    },
   });
 
   // All Done!
@@ -37,7 +37,7 @@ export const setupFixture = () => {
 
 export function actAsync(callback: () => Promise<any>) {
   act(() => {
-    callback().catch(e => console.warn('useAsyncEffect error', e));
+    callback().catch(e => console.warn("useAsyncEffect error", e));
   });
 }
 

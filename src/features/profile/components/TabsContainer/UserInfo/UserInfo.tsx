@@ -1,20 +1,20 @@
-import { Box, ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Tab, Tabs, TextField, Typography } from '@material-ui/core';
+import { Box, ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Tab, Tabs, Typography } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Book from '@material-ui/icons/Book';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Navigation from '@material-ui/icons/Navigation';
 import Person from '@material-ui/icons/Person';
-import { MDBCol, MDBContainer, MDBInput, MDBRow } from 'mdbreact';
+import { MDBCol, MDBInput, MDBRow } from 'mdbreact';
 import React from 'react';
 import './UserInfo.css';
 
 export default function UserInfo() {
-  interface ITabPanelProps {
+  interface TabPanelProps {
     children?: React.ReactNode;
     index: any;
     value: any;
   }
-  function TabPanel(props: ITabPanelProps) {
+  function TabPanel(props: TabPanelProps) {
     const { children, value, index, ...other } = props;
 
     return (
@@ -31,7 +31,7 @@ export default function UserInfo() {
     };
   }
 
-  const [value, setValue] = React.useState(0);
+  const [value] = React.useState(0);
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       root: {
@@ -46,13 +46,14 @@ export default function UserInfo() {
   );
   const classes = useStyles(useStyles);
 
-  function handleChange(event: React.ChangeEvent<{}>, newValue: number) {
-    setValue(newValue);
-  }
+  // function handleChange(newValue: number) {
+  //   setValue(newValue);
+  // }
 
   return (
+    /* remove handle change */
     <div className={classes.root}>
-      <Tabs orientation="vertical" variant="scrollable" value={value} onChange={handleChange} className={classes.tabs} aria-label="Vertical tabs example" style={{ borderLeft: '1px solid grey' }}>
+      <Tabs orientation="vertical" variant="scrollable" value={value} className={classes.tabs} aria-label="Vertical tabs example" style={{ borderLeft: '1px solid grey' }}>
         <Tab label="اطلاعات اصلی" {...a11yProps(0)} />
         <Tab label="اطلاعات شرکت" {...a11yProps(1)} />
         <Tab label="اطلاعات قرارداد" {...a11yProps(2)} />

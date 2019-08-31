@@ -1,12 +1,20 @@
-import { Box, ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Tab, Tabs, Typography } from '@material-ui/core';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import Book from '@material-ui/icons/Book';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Navigation from '@material-ui/icons/Navigation';
-import Person from '@material-ui/icons/Person';
-import { MDBCol, MDBInput, MDBRow } from 'mdbreact';
-import React from 'react';
-import './UserInfo.css';
+import {
+  Box,
+  ExpansionPanel,
+  ExpansionPanelDetails,
+  ExpansionPanelSummary,
+  Tab,
+  Tabs,
+  Typography,
+} from "@material-ui/core";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import Book from "@material-ui/icons/Book";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Navigation from "@material-ui/icons/Navigation";
+import Person from "@material-ui/icons/Person";
+import { MDBCol, MDBInput, MDBRow } from "mdbreact";
+import React from "react";
+import "./UserInfo.css";
 
 export default function UserInfo() {
   interface TabPanelProps {
@@ -18,7 +26,15 @@ export default function UserInfo() {
     const { children, value, index, ...other } = props;
 
     return (
-      <Typography component="div" role="tabpanel" style={{ width: '100%' }} hidden={value !== index} id={`vertical-tabpanel-${index}`} aria-labelledby={`vertical-tab-${index}`} {...other}>
+      <Typography
+        component="div"
+        role="tabpanel"
+        style={{ width: "100%" }}
+        hidden={value !== index}
+        id={`vertical-tabpanel-${index}`}
+        aria-labelledby={`vertical-tab-${index}`}
+        {...other}
+      >
         <Box p={3}>{children}</Box>
       </Typography>
     );
@@ -26,8 +42,8 @@ export default function UserInfo() {
 
   function a11yProps(index: any) {
     return {
-      'aria-controls': `vertical-tabpanel-${index}`,
-      id: `vertical-tab-${index}`
+      "aria-controls": `vertical-tabpanel-${index}`,
+      id: `vertical-tab-${index}`,
     };
   }
 
@@ -36,13 +52,13 @@ export default function UserInfo() {
     createStyles({
       root: {
         backgroundColor: theme.palette.background.paper,
-        display: 'flex',
-        flexGrow: 1
+        display: "flex",
+        flexGrow: 1,
       },
       tabs: {
-        borderRight: `1px solid ${theme.palette.divider}`
-      }
-    })
+        borderRight: `1px solid ${theme.palette.divider}`,
+      },
+    }),
   );
   const classes = useStyles(useStyles);
 
@@ -52,7 +68,15 @@ export default function UserInfo() {
 
   return (
     <div className={classes.root}>
-      <Tabs orientation="vertical" variant="scrollable" onChange={handleChange} value={value} className={classes.tabs} aria-label="Vertical tabs example" style={{ borderLeft: '1px solid grey' }}>
+      <Tabs
+        orientation="vertical"
+        variant="scrollable"
+        value={value}
+        onChange={handleChange}
+        className={classes.tabs}
+        aria-label="Vertical tabs example"
+        style={{ borderLeft: "1px solid grey" }}
+      >
         <Tab label="اطلاعات اصلی" {...a11yProps(0)} />
         <Tab label="اطلاعات شرکت" {...a11yProps(1)} />
         <Tab label="اطلاعات قرارداد" {...a11yProps(2)} />
@@ -61,13 +85,13 @@ export default function UserInfo() {
       <TabPanel value={value} index={0}>
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-            <div>
+            <Typography>
               <Person color="primary" />
               اطلاعات عمومی
-            </div>
+            </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <div>
+            <Typography>
               <MDBRow>
                 <MDBCol md="3">
                   <MDBInput size="sm" label="نام" type="text" value="سحر" disabled={true} />
@@ -110,18 +134,18 @@ export default function UserInfo() {
                   <MDBInput size="sm" label="کد ملی" value="0015366278" disabled={true} />
                 </MDBCol>
               </MDBRow>
-            </div>
+            </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2a-content" id="panel2a-header">
-            <div>
+            <Typography>
               <Book color="primary" />
               اطلاعات تحصیلی
-            </div>
+            </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <div>
+            <Typography>
               <MDBRow>
                 <MDBCol md="3">
                   <MDBInput size="sm" label="مدرک تحصیلی" value="کارشناسی ارشد" disabled={true} />
@@ -136,18 +160,18 @@ export default function UserInfo() {
                   <MDBInput size="sm" label="محل تحصیل" value="تهران" disabled={true} />
                 </MDBCol>
               </MDBRow>
-            </div>
+            </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2a-content" id="panel2a-header">
-            <div>
+            <Typography>
               <Navigation color="primary" />
               اطلاعات محل سکونت
-            </div>
+            </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <div>
+            <Typography>
               <MDBRow>
                 <MDBCol md="3">
                   <MDBInput size="sm" label="شماره منزل" value="213242434" disabled={true} />
@@ -159,7 +183,7 @@ export default function UserInfo() {
                   <MDBInput size="sm" label="آدرس" value=" lorem epsum   ddddsfdsfsdffsdfs " disabled={true} />
                 </MDBCol>
               </MDBRow>
-            </div>
+            </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
       </TabPanel>

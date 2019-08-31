@@ -41,10 +41,6 @@
       "pre-commit": "run-s pre-commit-prettier"
     }
   },
-  "prettier": {
-    "singleQuote": true,
-    "printWidth": 200
-  },
   "jest": {
     "coverageReporters": [
       "text",

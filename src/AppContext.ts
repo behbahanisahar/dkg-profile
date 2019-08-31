@@ -1,17 +1,18 @@
-import React, { useContext } from 'react';
-import { sp } from '@pnp/sp';
-import { SPRestService, SPService } from './services/SPService';
-import { AppRestService, AppService } from './services/AppService';
+import { sp } from "@pnp/sp";
+import React, { useContext } from "react";
+import { AppRestService, AppService } from "./services/AppService";
+import { SPRestService, SPService } from "./services/SPService";
 
 sp.setup({
   sp: {
-    baseUrl: '../',
+    baseUrl: "../",
     headers: {
-      Accept: 'application/json;odata=verbose'
-    }
-  }
+      Accept: "application/json;odata=verbose",
+    },
+  },
 });
 
+// tslint:disable-next-line: interface-name
 export interface AppStore {
   appService: AppService;
   spService: SPService;
@@ -19,7 +20,7 @@ export interface AppStore {
 
 export const AppContext = React.createContext<AppStore>({
   appService: new AppRestService(),
-  spService: new SPRestService()
+  spService: new SPRestService(),
 });
 
 export const useAppValue = () => useContext(AppContext);

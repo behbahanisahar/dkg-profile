@@ -1,0 +1,37 @@
+{
+  "editor.formatOnSave": true,
+  "editor.autoClosingQuotes": "never",
+  "editor.tabSize": 2,
+  "files.insertFinalNewline": true,
+  "debug.node.autoAttach": "on",
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.autoClosingTags": false,
+  "jest.showCoverageOnLoad": true,
+  "jest.pathToJest": "yarn test-vscode",
+  "jest.rootPath": "src",
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ],
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "[typescript]": {
+    "editor.formatOnSave": false
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": false
+  }
+}

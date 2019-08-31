@@ -1,0 +1,61 @@
+[
+  {
+    "scope": "http://localhost:3001",
+    "method": "OPTIONS",
+    "path": "/_api/web?$select=Title",
+    "body": "",
+    "status": 204,
+    "response": "",
+    "rawHeaders": [
+      "X-Powered-By",
+      "Express",
+      "Access-Control-Allow-Origin",
+      "*",
+      "Access-Control-Allow-Methods",
+      "GET,HEAD,PUT,PATCH,POST,DELETE",
+      "Vary",
+      "Access-Control-Request-Headers",
+      "Access-Control-Allow-Headers",
+      "x-clientservice-clienttag, user-agent",
+      "Content-Length",
+      "0",
+      "Date",
+      "Sat, 01 Dec 2018 16:07:31 GMT",
+      "Connection",
+      "close"
+    ]
+  },
+  {
+    "scope": "http://localhost:3001",
+    "method": "GET",
+    "path": "/_api/web?$select=Title",
+    "body": "",
+    "status": 200,
+    "response": {
+      "d": {
+        "__metadata": {
+          "id": "http://sharepoint/my-site-collection/_api/Web",
+          "uri": "http://sharepoint/my-site-collection/_api/Web",
+          "type": "SP.Web"
+        },
+        "Title": "My Site Collection"
+      }
+    },
+    "rawHeaders": [
+      "X-Powered-By",
+      "Express",
+      "Access-Control-Allow-Origin",
+      "*",
+      "Content-Type",
+      "application/json; charset=utf-8; odata=verbose",
+      "Content-Length",
+      "162",
+      "ETag",
+      "W/\"a2-oqHwg4GQptmkYW35wO9FojjnZwE\"",
+      "Date",
+      "Sat, 01 Dec 2018 16:07:31 GMT",
+      "Connection",
+      "close"
+    ]
+  }
+]

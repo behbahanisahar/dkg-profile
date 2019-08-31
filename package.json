@@ -1,0 +1,133 @@
+{
+  "name": "dkg-hris-profile",
+  "version": "0.1.1",
+  "private": true,
+  "engines": {
+    "node": ">=10.13.0"
+  },
+  "scripts": {
+    "start": "node ./bin/sp-rest-proxy.js start-dev-server",
+    "start-dev-server": "craco start",
+    "build": "craco build",
+    "test": "node ./bin/sp-rest-proxy.js test-interactive",
+    "test-debug": "node ./bin/sp-rest-proxy.js test-non-interactive",
+    "test-interactive": "craco test",
+    "test-non-interactive": "cross-env CI=true craco --inspect test --no-cache --runInBand",
+    "test-coverage": "node ./bin/sp-rest-proxy.js test-ci",
+    "test-vscode": "craco test --ci --coverage --reporters=default",
+    "test-ci": "craco test --ci --coverage --reporters=default --reporters=jest-junit && node ./bin/inlineCoverageReportCSS.js",
+    "analyze": "source-map-explorer build/static/js/main*",
+    "analyze-vendor": "source-map-explorer build/static/js/1*",
+    "eject": "craco eject",
+    "prettier": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
+    "pre-commit-prettier": "pretty-quick --staged",
+    "eslint": "eslint \"src/**/*.{ts,tsx,js,jsx}\"",
+    "deploy": "run-s build deploy-build",
+    "deploy-build-debug": "node --inspect ./node_modules/.bin/ts-node --project ./bin/tsconfig.json ./bin/uploadFolderToSP.ts \"./build/**\" \"/my-sp-react-app/\"",
+    "deploy-build": "ts-node --project ./bin/tsconfig.json ./bin/uploadFolderToSP.ts \"./build/**\" \"/my-sp-react-app/\"",
+    "deploy-api": "ts-node --project ./bin/tsconfig.json ./bin/uploadFolderToSP.ts \"./src/api/**\" \"/my-sp-react-app/\"",
+    "docker-build": "docker build --rm -t docker-user/sp-react-app:latest .",
+    "docker-run": "docker run -p 3000:3000 -p 3001:3001 -d docker-user/sp-react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "homepage": ".",
+  "husky": {
+    "hooks": {
+      "pre-commit": "run-s pre-commit-prettier"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 200
+  },
+  "jest": {
+    "coverageReporters": [
+      "text",
+      "html",
+      "cobertura"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!src/index.tsx",
+      "!src/serviceWorker.ts"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    }
+  },
+  "dependencies": {
+    "@baristalabs/craco-raw-loader": "^1.0.4",
+    "@craco/craco": "^5.2.4",
+    "@fortawesome/fontawesome-free": "^5.9.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "@material-ui/core": "^4.2.0",
+    "@material-ui/icons": "^4.2.1",
+    "@pnp/common": "^1.3.4",
+    "@pnp/graph": "^1.3.4",
+    "@pnp/logging": "^1.3.4",
+    "@pnp/odata": "^1.3.4",
+    "@pnp/sp": "^1.3.4",
+    "autobind-decorator": "^2.4.0",
+    "axios": "^0.19.0",
+    "babel-polyfill": "^6.26.0",
+    "classnames": "^2.2.6",
+    "clipboard": "^2.0.4",
+    "lodash": "^4.17.14",
+    "moment": "^2.24.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^3.0.1",
+    "typescript": "3.5.3",
+    "uuid": "^3.3.2",
+    "whatwg-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.9",
+    "@types/clipboard": "^2.0.1",
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.15",
+    "@types/lodash": "^4.14.136",
+    "@types/nock": "^10.0.3",
+    "@types/node": "^12.6.6",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-router-dom": "^4.3.4",
+    "@types/react-test-renderer": "^16.8.2",
+    "@types/uuid": "^3.4.5",
+    "@typescript-eslint/eslint-plugin": "^1.12.0",
+    "@typescript-eslint/parser": "^1.12.0",
+    "cross-env": "^5.2.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.2",
+    "fs-jetpack": "^2.2.2",
+    "husky": "^3.0.0",
+    "inline-css": "^2.4.2",
+    "jest-junit": "^6.4.0",
+    "nock": "^10.0.6",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "react-test-renderer": "^16.8.6",
+    "source-map-explorer": "^2.0.1",
+    "sp-pnp-node": "^2.1.6",
+    "sp-rest-proxy": "^2.8.10",
+    "ts-node": "^8.3.0"
+  }
+}

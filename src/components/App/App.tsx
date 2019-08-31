@@ -6,6 +6,7 @@ import logo from './logo.svg';
 
 import { AppContext, useAppValue } from '../../AppContext';
 import { AppTitle } from './AppTitle';
+import ProfileContainer from '../../features/profile/components/ProfileContainer';
 
 const useStyles = makeStyles<Theme>({
   root: {
@@ -51,6 +52,7 @@ const App: React.FunctionComponent = () => {
 
   return (
     <AppContext.Provider value={appStore}>
+      <ProfileContainer />
       <div className={classes.root}>
         <header className={classes.header}>
           <img src={logo} className={classes.logo} alt="logo" />

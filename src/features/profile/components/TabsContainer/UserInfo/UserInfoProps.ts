@@ -1,1 +1,3 @@
-export default interface IUserProfileProps {}
+export default interface UserProfileProps {
+  UserName: string;
+}

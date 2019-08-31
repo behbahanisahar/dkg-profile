@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export class AppRestService implements AppService {
   private _webFullUrl: string | undefined;
@@ -16,7 +16,7 @@ export class AppRestService implements AppService {
   }
 
   public async getTheAnswerToLifeTheUniverseAndEverything() {
-    return await axios.get('https://api.github.com/users/alinooshabadi');
+    return await axios.get("https://api.github.com/users/behbahanisahar");
   }
 }
 

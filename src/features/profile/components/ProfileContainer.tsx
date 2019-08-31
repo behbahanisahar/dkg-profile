@@ -1,20 +1,28 @@
-import { MDBCard, MDBCol, MDBContainer, MDBMask, MDBRow } from 'mdbreact';
-import React from 'react';
-import proImage from '../../../assets/img/card-profile5-square.jpg';
-import Header from './Header/Header';
-import TabsContainer from './TabsContainer/TabsContainer';
+import { MDBCard, MDBCol, MDBContainer, MDBMask, MDBRow } from "mdbreact";
+import React, { useState } from "react";
+import Header from "./Header/Header";
+import TabsContainer from "./TabsContainer/TabsContainer";
+import { useAppValue } from "../../../AppContext";
+import { useAsyncEffect } from "../../../util/hooks";
 
 const ProfileContainer: React.FC = () => {
+  const appStore = useAppValue();
+  const [Image, setTheAnswer] = useState("");
+  useAsyncEffect(async () => {
+    await appStore.appService.getTheAnswerToLifeTheUniverseAndEverything().then(x => {
+      setTheAnswer(x.data.avatar_url);
+    });
+  });
   return (
     <div>
       <Header />
       <MDBContainer>
         <MDBMask overlay="black-light">
           <MDBCard className="Container">
-            <img className="ProfileImage" src={proImage}></img>
+            <img className="ProfileImage" src={Image}></img>
             <MDBRow>
               <MDBCol md="4" />
-              <MDBCol style={{ textAlign: 'center' }}>
+              <MDBCol style={{ textAlign: "center" }}>
                 <div>
                   <b>
                     <h3>سحر بهبهانی</h3>

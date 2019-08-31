@@ -46,9 +46,9 @@ const App: React.FunctionComponent = () => {
   const appStore = useAppValue();
 
   useAsyncEffect(async () => {
-    // This is just an example.
-    const answer = await appStore.appService.getTheAnswerToLifeTheUniverseAndEverything();
-    setTheAnswer(answer);
+    await appStore.appService.getTheAnswerToLifeTheUniverseAndEverything().then(x => {
+      setTheAnswer(x.data.login);
+    });
   });
 
   return (

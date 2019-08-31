@@ -16,15 +16,15 @@ import { MDBCol, MDBInput, MDBRow } from "mdbreact";
 import React from "react";
 import "./UserInfo.css";
 
-export default function UserInfo() {
+const UserInfo: React.FunctionComponent = () => {
   interface TabPanelProps {
     children?: React.ReactNode;
     index: any;
     value: any;
   }
+
   function TabPanel(props: TabPanelProps) {
     const { children, value, index, ...other } = props;
-
     return (
       <Typography
         component="div"
@@ -198,4 +198,5 @@ export default function UserInfo() {
       </TabPanel>
     </div>
   );
-}
+};
+export default UserInfo;

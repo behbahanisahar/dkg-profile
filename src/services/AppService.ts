@@ -1,6 +1,5 @@
-/**
- * Example of an application service that calls a rest endpoint.
- */
+import axios from 'axios';
+
 export class AppRestService implements AppService {
   private _webFullUrl: string | undefined;
 
@@ -17,11 +16,10 @@ export class AppRestService implements AppService {
   }
 
   public async getTheAnswerToLifeTheUniverseAndEverything() {
-    // A real call would use axios or fetch or whatever to do a ajax call.
-    return Promise.resolve(42);
+    return await axios.get('https://api.github.com/users/alinooshabadi');
   }
 }
 
 export interface AppService {
-  getTheAnswerToLifeTheUniverseAndEverything(): Promise<number>;
+  getTheAnswerToLifeTheUniverseAndEverything(): Promise<any>;
 }

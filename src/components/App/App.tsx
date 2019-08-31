@@ -3,6 +3,8 @@ import { useAsyncEffect } from '../../util/hooks';
 import { Theme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/styles';
 import logo from './logo.svg';
+import './App.css';
+import '../../assets/css/Main.css';
 
 import { AppContext, useAppValue } from '../../AppContext';
 import { AppTitle } from './AppTitle';

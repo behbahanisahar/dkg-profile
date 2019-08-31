@@ -31,7 +31,7 @@ export default function UserInfo() {
     };
   }
 
-  const [value] = React.useState(0);
+  const [value, setValue] = React.useState(0);
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       root: {
@@ -46,14 +46,13 @@ export default function UserInfo() {
   );
   const classes = useStyles(useStyles);
 
-  // function handleChange(newValue: number) {
-  //   setValue(newValue);
-  // }
+  function handleChange(event: React.ChangeEvent<{}>, newValue: number) {
+    setValue(newValue);
+  }
 
   return (
-    /* remove handle change */
     <div className={classes.root}>
-      <Tabs orientation="vertical" variant="scrollable" value={value} className={classes.tabs} aria-label="Vertical tabs example" style={{ borderLeft: '1px solid grey' }}>
+      <Tabs orientation="vertical" variant="scrollable" onChange={handleChange} value={value} className={classes.tabs} aria-label="Vertical tabs example" style={{ borderLeft: '1px solid grey' }}>
         <Tab label="اطلاعات اصلی" {...a11yProps(0)} />
         <Tab label="اطلاعات شرکت" {...a11yProps(1)} />
         <Tab label="اطلاعات قرارداد" {...a11yProps(2)} />

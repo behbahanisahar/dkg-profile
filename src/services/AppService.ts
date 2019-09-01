@@ -1,25 +1,12 @@
-import axios from "axios";
+import ServiceBase from "./service-base";
 
-export class AppRestService implements AppService {
-  private _webFullUrl: string | undefined;
+export class AppRestService extends ServiceBase {
+  public async getGitHubData(): Promise<any> {
+    debugger;
+    const items: any = await this.get();
 
-  public constructor(webFullUrl?: string) {
-    if (!webFullUrl) {
-      webFullUrl = window.location.href;
-    }
-
-    this._webFullUrl = webFullUrl;
-  }
-
-  public get webFullUrl() {
-    return this._webFullUrl;
-  }
-
-  public async getTheAnswerToLifeTheUniverseAndEverything() {
-    return await axios.get("https://api.github.com/users/behbahanisahar");
+    console.log(items);
+    return Promise.resolve(items);
   }
 }
-
-export interface AppService {
-  getTheAnswerToLifeTheUniverseAndEverything(): Promise<any>;
-}
+export default AppRestService;

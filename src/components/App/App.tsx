@@ -1,64 +1,53 @@
-import { Theme } from "@material-ui/core/styles";
-import { makeStyles } from "@material-ui/styles";
-import React, { useState } from "react";
+/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable @typescript-eslint/explicit-member-accessibility */
+import React, { Component } from "react";
 import "../../assets/css/Main.css";
-import { useAsyncEffect } from "../../util/hooks";
 import "./App.css";
-
-import { AppContext, useAppValue } from "../../AppContext";
 import ProfileContainer from "../../features/profile/components/ProfileContainer";
-import { AppTitle } from "./AppTitle";
+import AppRestService from "../../services/AppService";
 
-const useStyles = makeStyles<Theme>({
-  root: {
-    textAlign: "center",
-  },
-  logo: {
-    animation: "$App-logo-spin infinite 20s linear",
-    height: "40vmin",
-  },
-  header: {
-    backgroundColor: "#282c34",
-    minHeight: "100vh",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    fontSize: "calc(10px + 2vmin)",
-    color: "white",
-  },
-  link: {
-    color: "#61dafb",
-  },
-  "@keyframes App-logo-spin": {
-    from: {
-      transform: "rotate(0deg)",
-    },
-    to: {
-      transform: "rotate(360deg)",
+const initialState = {
+  GitHubData: {
+    data: {
+      login: "",
+      id: 0,
+      avatar_url: "",
+      url: "",
+      name: "",
+      location: "",
+      email: "",
+      bio: "",
     },
   },
-});
-
-const App: React.FunctionComponent = () => {
-  const [theAnswer, setTheAnswer] = useState(0);
-  const classes = useStyles();
-  const appStore = useAppValue();
-
-  useAsyncEffect(async () => {
-    await appStore.appService.getTheAnswerToLifeTheUniverseAndEverything().then(x => {
-      setTheAnswer(x.data.login);
-    });
-  });
-
-  return (
-    <AppContext.Provider value={appStore}>
-      <div className={classes.link}>
-        Connected to <AppTitle />, {theAnswer}
-      </div>
-      <ProfileContainer />
-    </AppContext.Provider>
-  );
 };
+
+type State = Readonly<typeof initialState>;
+export const MyContext = React.createContext(initialState);
+class App extends Component<object, State> {
+  private AppRestService: AppRestService;
+  public constructor(props: any) {
+    super(props);
+    this.AppRestService = new AppRestService();
+  }
+  public async componentDidMount() {
+    const GitHubData = await this.AppRestService.getGitHubData();
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        GitHubData,
+      };
+    });
+  }
+  readonly state: State = initialState;
+  render() {
+    return (
+      <MyContext.Provider value={this.state}>
+        <div>
+          <ProfileContainer />
+        </div>
+      </MyContext.Provider>
+    );
+  }
+}
 
 export default App;

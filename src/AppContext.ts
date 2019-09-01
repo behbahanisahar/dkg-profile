@@ -1,20 +1,9 @@
-import { sp } from "@pnp/sp";
+/* eslint-disable @typescript-eslint/camelcase */
 import React, { useContext } from "react";
-import { AppRestService, AppService } from "./services/AppService";
+import { AppRestService } from "./services/AppService";
 import { SPRestService, SPService } from "./services/SPService";
-
-sp.setup({
-  sp: {
-    baseUrl: "../",
-    headers: {
-      Accept: "application/json;odata=verbose",
-    },
-  },
-});
-
-// tslint:disable-next-line: interface-name
 export interface AppStore {
-  appService: AppService;
+  appService: any;
   spService: SPService;
 }
 

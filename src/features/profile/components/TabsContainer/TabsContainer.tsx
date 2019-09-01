@@ -16,7 +16,7 @@ interface TabPanelProps {
 }
 
 const TabsContainer: React.FC = () => {
-  const [value] = React.useState(0);
+  const [value, setValue] = React.useState(0);
   function TabProps(index: any) {
     return {
       id: `scrollable-force-tab-${index}`,
@@ -24,10 +24,8 @@ const TabsContainer: React.FC = () => {
       "aria-controls": `scrollable-force-tabpanel-${index}`,
     };
   }
-  function handleChange() {
-    //  store.dispatch( addArticle({ title: "React Redux Tutorial for Beginners", id: 1 }) )
-    //   console.log(store.getState());
-    //  setValue(newValue);
+  function handleChange(event: React.ChangeEvent<{}>, newValue: number) {
+    setValue(newValue);
   }
   return (
     <div className="App">

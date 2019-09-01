@@ -7,6 +7,7 @@ import ProfileContainer from "../../features/profile/components/ProfileContainer
 import AppRestService from "../../services/AppService";
 
 const initialState = {
+  testText: "",
   GitHubData: {
     data: {
       login: "",
@@ -18,6 +19,9 @@ const initialState = {
       email: "",
       bio: "",
     },
+  },
+  updateGitHubEmail: (data: any) => {
+    return (initialState.GitHubData.data.email = data);
   },
 };
 

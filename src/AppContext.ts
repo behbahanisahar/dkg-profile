@@ -1,26 +1,29 @@
-import { sp } from "@pnp/sp";
+/* eslint-disable @typescript-eslint/camelcase */
 import React, { useContext } from "react";
-import { AppRestService, AppService } from "./services/AppService";
+import { AppRestService } from "./services/AppService";
 import { SPRestService, SPService } from "./services/SPService";
-
-sp.setup({
-  sp: {
-    baseUrl: "../",
-    headers: {
-      Accept: "application/json;odata=verbose",
-    },
-  },
-});
-
-// tslint:disable-next-line: interface-name
+import GitHubData from "./entities/GitHubDataModel";
 export interface AppStore {
-  appService: AppService;
+  appService: any;
   spService: SPService;
+  GitHubData: { data: GitHubData };
 }
 
 export const AppContext = React.createContext<AppStore>({
   appService: new AppRestService(),
   spService: new SPRestService(),
+  GitHubData: {
+    data: {
+      login: "",
+      id: 0,
+      avatar_url: "",
+      url: "",
+      name: "",
+      location: "",
+      email: "",
+      bio: "",
+    },
+  },
 });
 
 export const useAppValue = () => useContext(AppContext);

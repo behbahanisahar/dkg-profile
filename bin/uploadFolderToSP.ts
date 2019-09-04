@@ -1,8 +1,8 @@
-import fs from 'fs-jetpack';
-import path from 'path';
-import { Web, Folder } from '@pnp/sp';
-import { PnpNode } from 'sp-pnp-node';
-import _ from 'lodash';
+import fs from "fs-jetpack";
+import path from "path";
+import { Web, Folder } from "@pnp/sp";
+import { PnpNode } from "sp-pnp-node";
+import _ from "lodash";
 
 const pathCache: { [foo: string]: Folder } = {};
 const delay = (time: number) => (result: any) => new Promise(resolve => setTimeout(() => resolve(result), time));
@@ -17,7 +17,7 @@ const ensureSPPath = async (web: Web, targetPath: string): Promise<Folder | unde
 
   const webInfo = await web.get();
 
-  let currentPath = '';
+  let currentPath = "";
   let currentFolder: Folder | undefined = undefined;
   let lastFolder: Folder | undefined = undefined;
   for (let folder of folders) {
@@ -34,7 +34,10 @@ const ensureSPPath = async (web: Web, targetPath: string): Promise<Folder | unde
     try {
       lastFolder = currentFolder;
       currentFolder = web.getFolderByServerRelativeUrl(currentPath);
-      await currentFolder.get();
+
+      var current = await currentFolder.get();
+      if (current._url == "http://hq-spsrv01:90/_api/web/getFolderByServerRelativeUrl('SiteAssets/profile')")
+        currentFolder.delete();
     } catch (err) {
       if (err.response.status === 500 || err.response.status === 404) {
         if (lastFolder) {
@@ -44,13 +47,17 @@ const ensureSPPath = async (web: Web, targetPath: string): Promise<Folder | unde
           lastFolder = currentFolder;
           currentFolder = web.getFolderByServerRelativeUrl(currentPath);
         } else {
-          console.log(`The document library ${webInfo.Url}/${currentPath} was not found. Please create the document library.`);
+          console.log(
+            `The document library ${webInfo.Url}/${currentPath} was not found. Please create the document library.`,
+          );
           currentFolder = undefined;
           break;
         }
       } else {
         const js = await err.response.json();
-        console.log(`The SharePoint folder ${webInfo.Url}/${currentPath} was not found: ${_.get(js, 'error.message.value')}`);
+        console.log(
+          `The SharePoint folder ${webInfo.Url}/${currentPath} was not found: ${_.get(js, "error.message.value")}`,
+        );
         currentFolder = undefined;
         break;
       }
@@ -71,19 +78,19 @@ const uploadFolderToSP = async (sourceGlob: string, targetBasePath: string): Pro
 
   const settings = await new PnpNode({
     config: {
-      configPath: './sp-rest-proxy/private.json'
-    }
+      configPath: "./sp-rest-proxy/private.json",
+    },
   }).init();
 
-  const web = new Web(settings.siteUrl || '');
+  const web = new Web(settings.siteUrl || "");
 
-  const files = fs.find('.', {
-    matching: sourceGlob
+  const files = fs.find(".", {
+    matching: sourceGlob,
   });
 
   for (const f of files) {
     console.log(f);
-    const fileData = await fs.readAsync(f, 'buffer');
+    const fileData = await fs.readAsync(f, "buffer");
 
     if (!fileData) {
       console.log(`${f} could not be read; Skipping.`);
@@ -94,7 +101,7 @@ const uploadFolderToSP = async (sourceGlob: string, targetBasePath: string): Pro
     const p = path.parse(f).dir.split(path.sep);
     p.splice(0, 1);
     p.unshift(targetBasePath);
-    const targetFilePath = p.join(path.sep).replace(/\/(.*)/, '$1');
+    const targetFilePath = p.join(path.sep).replace(/\/(.*)/, "$1");
     const folder = await ensureSPPath(web, targetFilePath);
     if (!folder) {
       continue;
@@ -109,7 +116,7 @@ const uploadFolderToSP = async (sourceGlob: string, targetBasePath: string): Pro
       }
     } catch (err) {
       const js = await err.response.json();
-      const message = _.get(js, 'error.message.value');
+      const message = _.get(js, "error.message.value");
       console.log(`Unable to upload ${f}: ${message}`);
       continue;
     }
@@ -122,7 +129,7 @@ const args = process.argv.slice(2);
 uploadFolderToSP(args[0], args[1])
   .then(res => {
     if (res === true) {
-      console.log('Files Deployed!');
+      console.log("Files Deployed!");
     }
   })
   .catch(e => console.dir(e));

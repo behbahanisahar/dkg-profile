@@ -15,6 +15,24 @@ export default class Editable extends React.Component {
               <MaterialTable
                 icons={context.tableIcons}
                 title="performance"
+                localization={{
+                  pagination: {
+                    labelDisplayedRows: "{از}-{تا} of {تعداد}",
+                  },
+                  toolbar: {
+                    nRowsSelected: "{0} انتخاب شده",
+                  },
+                  header: {
+                    actions: "Actions",
+                  },
+                  body: {
+                    emptyDataSourceMessage: "No records to display",
+                    deleteTooltip: "مایل به حذف این ردیف می باشید؟",
+                    filterRow: {
+                      filterTooltip: "Filter",
+                    },
+                  },
+                }}
                 columns={[
                   { title: "KPI", field: "name" },
                   { title: "Weight", field: "surname" },

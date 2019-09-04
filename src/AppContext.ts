@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import React, { useContext } from "react";
 import { AppRestService } from "./services/AppService";
-import { SPRestService, SPService } from "./services/SPService";
+import SPRestService from "./services/SPService";
 import GitHubData from "./entities/GitHubDataModel";
 export interface AppStore {
   appService: any;
-  spService: SPService;
+  spService: any;
   GitHubData: { data: GitHubData };
 }
 

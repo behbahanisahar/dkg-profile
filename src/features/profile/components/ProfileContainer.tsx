@@ -21,7 +21,7 @@ const ProfileContainer: React.FC = () => {
                     <MDBCol style={{ textAlign: "center" }}>
                       <div>
                         <b>
-                          <h3>{context.GitHubData.data.name}</h3>
+                          <h3>{context.UserInfo[0].FirstName}</h3>
                         </b>
                         <p>{context.GitHubData.data.bio}</p>
                         <p>{context.GitHubData.data.email}</p>

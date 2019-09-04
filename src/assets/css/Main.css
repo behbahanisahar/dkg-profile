@@ -1,7 +1,7 @@
-@import url('fontiran.css');
+@import url("fontiran.css");
 
-* {
-  font-family: 'IRANSans' !important;
+body {
+  font-family: "IRANSans" !important;
 }
 
 body {
@@ -21,10 +21,10 @@ body {
   padding-right: 10px !important;
   font-weight: 700 !important;
 }
-.md-form input[type='text'] {
+.md-form input[type="text"] {
   font-weight: 700 !important;
 }
 
 * {
-  font-family: 'IRANSans' !important;
+  font-family: "IRANSans" !important;
 }

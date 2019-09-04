@@ -1,24 +1,13 @@
-import { sp } from "@pnp/sp";
+import { Web } from "@pnp/sp";
+import ServiceBase from "./service-base";
 
-export class SPRestService implements SPService {
-  public async getRootWebTitle() {
-    const fields = await sp.web.select("Title").get();
-    return fields.Title;
+export default class SPRestService extends ServiceBase {
+  public async getUserInfo(listName: string): Promise<any> {
+    if (process.env.NODE_ENV === "production") {
+      const web = new Web("http://hq-spsrv01:90");
+      const result: any = await web.lists.getByTitle(listName).items.get();
+      return Promise.resolve(result);
+    }
+    return Promise.resolve("it is not a production mode");
   }
-
-  public async getCurrentUser() {
-    const currentUser = await sp.web.currentUser.get();
-    return currentUser;
-  }
-
-  public async getContextInfo() {
-    const ctx = await sp.site.getContextInfo();
-    return ctx;
-  }
-}
-
-export interface SPService {
-  getRootWebTitle(): Promise<string>;
-  getCurrentUser(): Promise<object>;
-  getContextInfo(): Promise<object>;
 }

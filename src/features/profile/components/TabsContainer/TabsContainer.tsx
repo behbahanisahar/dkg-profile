@@ -8,6 +8,7 @@ import PersonPinIcon from "@material-ui/icons/PersonPin";
 import PhoneIcon from "@material-ui/icons/Phone";
 import React from "react";
 import UserInfo from "./UserInfo/UserInfo";
+import Editable from "../Table/Table";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -51,7 +52,7 @@ const TabsContainer: React.FC = () => {
           <UserInfo />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          MANAGER
+          <Editable />
         </TabPanel>
         <TabPanel value={value} index={2}>
           PROMOTION

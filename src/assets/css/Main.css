@@ -1,7 +1,12 @@
+/* SharePoint Overrides */
 #pageContentTitle {
   display: none;
 }
 
+.ms-pub-contentLayout {
+  padding: 0;
+}
+/* ----------------- */
 .md-form label.active {
   left: auto !important;
   font-weight: 100 !important;

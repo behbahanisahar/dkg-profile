@@ -10,11 +10,4 @@ export default class SPRestService extends ServiceBase {
     }
     return Promise.resolve("it is not a production mode");
   }
-
-  public async getUserInfoDTO(): Promise<any> {
-    const items: any = await this.get("users/current");
-
-    console.log(items);
-    return Promise.resolve(items);
-  }
 }

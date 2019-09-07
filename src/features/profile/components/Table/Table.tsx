@@ -2,14 +2,14 @@
 /* eslint-disable react/display-name */
 import React from "react";
 import MaterialTable from "material-table";
-import { MyContext } from "../../../../components/App";
+import { AppContextConsumer } from "../../../../components/App/AppState";
 
 /* eslint-disable @typescript-eslint/explicit-member-accessibility */
 export default class Editable extends React.Component {
   render() {
     return (
       <div>
-        <MyContext.Consumer>
+        <AppContextConsumer>
           {context => (
             <>
               <MaterialTable
@@ -85,7 +85,7 @@ export default class Editable extends React.Component {
               <div>{context.columns[0].title}</div>
             </>
           )}
-        </MyContext.Consumer>
+        </AppContextConsumer>
       </div>
     );
   }

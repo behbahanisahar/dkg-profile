@@ -1,12 +1,3 @@
-@import url("fontiran.css");
-
-body {
-  font-family: "IRANSans" !important;
-}
-
-body {
-  direction: rtl !important;
-}
 .md-form label.active {
   left: auto !important;
   font-weight: 100 !important;
@@ -23,8 +14,4 @@ body {
 }
 .md-form input[type="text"] {
   font-weight: 700 !important;
-}
-
-* {
-  font-family: "IRANSans" !important;
 }

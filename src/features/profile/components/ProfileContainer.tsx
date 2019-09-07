@@ -15,7 +15,7 @@ const ProfileContainer: React.FC = () => {
             <MDBContainer>
               <MDBMask overlay="black-light">
                 <MDBCard className="Container">
-                  <img className="ProfileImage" src={context.GitHubData.data.avatar_url}></img>
+                  <img className="ProfileImage"></img>
                   <MDBRow>
                     <MDBCol md="4" />
                     <MDBCol style={{ textAlign: "center" }}>
@@ -23,8 +23,8 @@ const ProfileContainer: React.FC = () => {
                         <b>
                           <h3>{context.UserInfo[0].FirstName}</h3>
                         </b>
-                        <p>{context.GitHubData.data.bio}</p>
-                        <p>{context.GitHubData.data.email}</p>
+                        <p>test</p>
+                        <p>test</p>
                       </div>
                     </MDBCol>
                     <MDBCol md="4" />

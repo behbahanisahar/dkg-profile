@@ -15,12 +15,11 @@ export default class ServiceBase {
     });
   }
 
-  protected get = async () => {
-    return await axios.get(`${this.config.LocalEndpoint}`, {
+  protected get = async (operation: string) => {
+    return await axios.get(`${this.config.LocalEndpoint}/${operation}`, {
       headers: this.config.headers,
     });
   };
-
   protected post = async (operation: string, params: any) => {
     return await axios.post(`${this.config.LocalEndpoint}/${operation}`, JSON.parse(JSON.stringify(params)), {
       headers: this.config.headers,

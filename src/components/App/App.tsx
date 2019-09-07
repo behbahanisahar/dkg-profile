@@ -5,10 +5,8 @@ import React, { Component } from "react";
 import "../../assets/css/Main.css";
 import "./App.css";
 import ProfileContainer from "../../features/profile/components/ProfileContainer";
-import AppRestService from "../../services/AppService";
 import SPRestService from "./../../services/SPService";
 import { forwardRef } from "react";
-
 import AddBox from "@material-ui/icons/AddBox";
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import Check from "@material-ui/icons/Check";
@@ -24,20 +22,18 @@ import Remove from "@material-ui/icons/Remove";
 import SaveAlt from "@material-ui/icons/SaveAlt";
 import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
-const initialState = {
-  testText: "",
-  GitHubData: {
-    data: {
-      login: "",
-      id: 0,
-      avatar_url: "",
-      url: "",
-      name: "",
-      location: "",
-      email: "",
-      bio: "",
-    },
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: "#ef5661" },
   },
+  typography: {
+    //  fontFamily: ["B Koodak"].join(","),
+    //  fontSize: 16,
+    //  htmlFontSize: 12.9,
+  },
+});
+const initialState = {
   tableIcons: {
     Add: forwardRef((props: any, ref: any) => <AddBox {...props} ref={ref} />),
     Check: forwardRef((props: any, ref: any) => <Check {...props} ref={ref} />),
@@ -56,9 +52,6 @@ const initialState = {
     SortArrow: forwardRef((props: any, ref: any) => <ArrowUpward {...props} ref={ref} />),
     ThirdStateCheck: forwardRef((props: any, ref: any) => <Remove {...props} ref={ref} />),
     ViewColumn: forwardRef((props: any, ref: any) => <ViewColumn {...props} ref={ref} />),
-  },
-  updateGitHubEmail: (data: any) => {
-    return (initialState.GitHubData.data.email = data);
   },
   UserInfo: [
     {
@@ -86,20 +79,22 @@ const initialState = {
 type State = Readonly<typeof initialState>;
 export const MyContext = React.createContext(initialState);
 class App extends Component<object, State> {
-  private AppRestService: AppRestService;
+  // private AppRestService: AppRestService;
   private SPRestService: SPRestService;
   public constructor(props: any) {
     super(props);
-    this.AppRestService = new AppRestService();
+    //  this.AppRestService = new AppRestService();
     this.SPRestService = new SPRestService();
   }
   public async componentDidMount() {
-    const GitHubData = await this.AppRestService.getGitHubData();
+    // const GitHubData = await this.AppRestService.getGitHubData();
     const UserInfo = await this.SPRestService.getUserInfo("UserInfo");
+    const UserInfoDTO = await this.SPRestService.getUserInfoDTO();
+    console.log(UserInfoDTO);
     this.setState(prevState => {
       return {
         ...prevState,
-        GitHubData,
+        //  GitHubData,
         UserInfo,
       };
     });
@@ -108,9 +103,11 @@ class App extends Component<object, State> {
   render() {
     return (
       <MyContext.Provider value={this.state}>
-        <div>
-          <ProfileContainer />
-        </div>
+        <MuiThemeProvider theme={theme}>
+          <div>
+            <ProfileContainer />
+          </div>
+        </MuiThemeProvider>
       </MyContext.Provider>
     );
   }

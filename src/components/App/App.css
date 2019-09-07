@@ -1,9 +1,8 @@
 body {
   margin: 0;
-  font-family: 'IRANSans' !important;
+  font-family: "IRANSans" !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  direction: rtl;
 }
 
 .App {

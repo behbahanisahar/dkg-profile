@@ -6,6 +6,9 @@
 .ms-pub-contentLayout {
   padding: 0;
 }
+.MuiTypography-body1 {
+  font-family: "IRANSans" !important;
+}
 /* ----------------- */
 .md-form label.active {
   left: auto !important;

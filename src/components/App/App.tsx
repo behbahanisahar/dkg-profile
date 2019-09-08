@@ -81,8 +81,13 @@ class App extends React.Component<object, AppState> {
         FirstName: "sahar",
         LastName: "B",
       },
+      text: "",
+      changeText: this.changeText,
     };
   }
+  public changeText = (newText: any) => {
+    this.setState({ text: newText });
+  };
   public async componentDidMount() {
     const UserInfo = await this.AppRestService.getUserInfoDTO();
     this.setState(prevState => {
@@ -94,7 +99,6 @@ class App extends React.Component<object, AppState> {
   }
 
   render() {
-    // const MyContext = React.createContext(this.state);
     return (
       <AppContextProvider value={this.state}>
         <MuiThemeProvider theme={theme}>

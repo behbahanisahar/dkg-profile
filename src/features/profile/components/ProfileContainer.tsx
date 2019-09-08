@@ -3,6 +3,7 @@ import React from "react";
 import Header from "./Header/Header";
 import TabsContainer from "./TabsContainer/TabsContainer";
 import { AppContextConsumer } from "../../../components/App/AppState";
+import Chat from "./chat";
 
 const ProfileContainer: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ const ProfileContainer: React.FC = () => {
                         </b>
                         <p>{context.UserInfo.LastName}</p>
                         <p>{context.UserInfo.UserName}</p>
+                        <Chat />
                       </div>
                     </MDBCol>
                     <MDBCol md="4" />

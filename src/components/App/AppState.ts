@@ -6,6 +6,8 @@ export default interface AppState {
   columns: any[];
   data: any[];
   UserInfo: UserInfoDTO;
+  text: string;
+  changeText: any;
 }
 
 const intialAppState: AppState = {
@@ -13,7 +15,9 @@ const intialAppState: AppState = {
   columns: [],
   data: [],
   UserInfo: { UserName: "", FirstName: "", LastName: "" },
+  text: "",
+  changeText: "",
 };
-const ctxt = React.createContext<AppState>(intialAppState);
+export const ctxt = React.createContext<AppState>(intialAppState);
 export const AppContextProvider = ctxt.Provider;
 export const AppContextConsumer = ctxt.Consumer;

@@ -1,9 +1,11 @@
 import { MDBCard, MDBCol, MDBContainer, MDBMask, MDBRow } from "mdbreact";
 import React from "react";
-import Header from "./Header/Header";
+// import Header from "./Header/Header";
 import TabsContainer from "./TabsContainer/TabsContainer";
 import { AppContextConsumer } from "../../../components/App/AppState";
 import Chat from "./chat";
+import "../../../features/profile/components/Header/Header.css";
+import ProfilePhoto from "../../../assets/img/card-profile5-square.jpg";
 
 const ProfileContainer: React.FC = () => {
   return (
@@ -11,11 +13,11 @@ const ProfileContainer: React.FC = () => {
       <AppContextConsumer>
         {context => (
           <>
-            <Header />
+            {/* <Header /> */}
             <MDBContainer>
               <MDBMask overlay="black-light">
                 <MDBCard className="Container">
-                  <img className="ProfileImage"></img>
+                  <img src={ProfilePhoto} className="ProfileImage"></img>
                   <MDBRow>
                     <MDBCol md="4" />
                     <MDBCol style={{ textAlign: "center" }}>

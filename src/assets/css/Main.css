@@ -10,12 +10,12 @@
   font-family: "IRANSans" !important;
 }
 /* ----------------- */
-.md-form label.active {
+/* .md-form label.active {
   left: auto !important;
   font-weight: 100 !important;
-}
+} */
 
-.md-form label.active {
+/* .md-form label.active {
   left: auto !important;
 }
 
@@ -23,7 +23,18 @@
   right: 0 !important;
   padding-right: 10px !important;
   font-weight: 700 !important;
-}
+} */
 .md-form input[type="text"] {
   font-weight: 700 !important;
+}
+.ProfileImage {
+  border-radius: 50% !important;
+  margin-top: -10%;
+  max-width: 20%;
+  height: auto;
+  margin-left: 40%;
+}
+.Container {
+  background-color: white;
+  margin-top: 10% !important;
 }

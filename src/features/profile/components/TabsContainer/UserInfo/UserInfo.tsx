@@ -94,10 +94,10 @@ const UserInfo: React.FunctionComponent = () => {
             <div>
               <MDBRow>
                 <MDBCol md="3">
-                  <MDBInput size="sm" label="نام" type="text" value="سحر" disabled={true} />
+                  <MDBInput size="sm" label="FirstName" type="text" value="سحر" disabled={true} />
                 </MDBCol>
                 <MDBCol md="3">
-                  <MDBInput size="sm" label="نام خانوادگی" value="بهبهانی" disabled={true} />
+                  <MDBInput size="sm" label="LastName" value="بهبهانی" disabled={true} />
                 </MDBCol>
                 <MDBCol md="3">
                   <MDBInput size="sm" label="جنسیت" value="زن" disabled={true} />

@@ -1,10 +1,9 @@
 import React from "react";
-import { AppContextConsumer } from "../../../components/App/AppState";
 
 const Chat: React.FC = () => {
   return (
     <div>
-      <AppContextConsumer>
+      {/* <AppContextConsumer>
         {changeText => (
           <>
             <input
@@ -17,7 +16,8 @@ const Chat: React.FC = () => {
             <p>{changeText.text}</p>
           </>
         )}
-      </AppContextConsumer>
+      </AppContextConsumer> */}
+      test
     </div>
   );
 };

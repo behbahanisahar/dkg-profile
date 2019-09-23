@@ -3,7 +3,6 @@ import React from "react";
 // import Header from "./Header/Header";
 import TabsContainer from "./TabsContainer/TabsContainer";
 import { AppContextConsumer } from "../../../components/App/AppState";
-import Chat from "./chat";
 import "../../../features/profile/components/Header/Header.css";
 import ProfilePhoto from "../../../assets/img/card-profile5-square.jpg";
 
@@ -14,7 +13,7 @@ const ProfileContainer: React.FC = () => {
         {context => (
           <>
             {/* <Header /> */}
-            <MDBContainer>
+            <MDBContainer md="12" xs="12">
               <MDBMask overlay="black-light">
                 <MDBCard className="Container">
                   <img src={ProfilePhoto} className="ProfileImage"></img>
@@ -27,7 +26,6 @@ const ProfileContainer: React.FC = () => {
                         </b>
                         <p>{context.UserInfo.LastName}</p>
                         <p>{context.UserInfo.UserName}</p>
-                        <Chat />
                       </div>
                     </MDBCol>
                     <MDBCol md="4" />

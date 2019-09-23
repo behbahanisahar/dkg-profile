@@ -1,15 +1,13 @@
 /* eslint-disable @typescript-eslint/explicit-member-accessibility */
 /* eslint-disable react/display-name */
 import React from "react";
-import MaterialTable from "material-table";
-import { AppContextConsumer } from "../../../../components/App/AppState";
 
 /* eslint-disable @typescript-eslint/explicit-member-accessibility */
 export default class Editable extends React.Component {
   render() {
     return (
       <div>
-        <AppContextConsumer>
+        {/* <AppContextConsumer>
           {context => (
             <>
               <MaterialTable
@@ -85,7 +83,8 @@ export default class Editable extends React.Component {
               <div>{context.columns[0].title}</div>
             </>
           )}
-        </AppContextConsumer>
+        </AppContextConsumer> */}
+        test
       </div>
     );
   }

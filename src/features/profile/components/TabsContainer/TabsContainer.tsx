@@ -2,13 +2,10 @@ import { Box, Typography } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
-import FavoriteIcon from "@material-ui/icons/Favorite";
 import HelpIcon from "@material-ui/icons/Help";
-import PersonPinIcon from "@material-ui/icons/PersonPin";
 import PhoneIcon from "@material-ui/icons/Phone";
 import React from "react";
 import UserInfo from "./UserInfo/UserInfo";
-import Editable from "../Table/Table";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -43,23 +40,15 @@ const TabsContainer: React.FC = () => {
             aria-label="scrollable force tabs example"
           >
             <Tab label="اطلاعات پرسنلی" icon={<PhoneIcon />} {...TabProps(0)} />
-            <Tab label="مدیران" icon={<FavoriteIcon />} {...TabProps(1)} />
-            <Tab label="ارتقا" icon={<PersonPinIcon />} {...TabProps(2)} />
-            <Tab label="مالی" icon={<HelpIcon />} {...TabProps(3)} />
+            {/* <Tab label="مدیران" icon={<FavoriteIcon />} {...TabProps(1)} />
+            <Tab label="ارتقا" icon={<PersonPinIcon />} {...TabProps(2)} /> */}
+            <Tab label="مالی" icon={<HelpIcon />} {...TabProps(1)} />
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
           <UserInfo />
         </TabPanel>
-        <TabPanel value={value} index={1}>
-          <Editable />
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          PROMOTION
-        </TabPanel>
-        <TabPanel value={value} index={3}>
-          INFO CHARGE
-        </TabPanel>
+        <TabPanel value={value} index={1}></TabPanel>
       </div>
     </div>
   );

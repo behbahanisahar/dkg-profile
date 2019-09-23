@@ -1,22 +1,21 @@
 import UserInfoDTO from "../../entities/UserProfile";
 import React from "react";
+import UserTasks from "../../entities/UserTasks";
 
 export default interface AppState {
-  tableIcons: any;
-  columns: any[];
-  data: any[];
   UserInfo: UserInfoDTO;
-  text: string;
-  changeText: any;
+  Tasks: UserTasks[];
+  // text: string;
+  // changeText: any;
+  page?: string;
 }
 
 const intialAppState: AppState = {
-  tableIcons: null,
-  columns: [],
-  data: [],
   UserInfo: { UserName: "", FirstName: "", LastName: "" },
-  text: "",
-  changeText: "",
+  Tasks: [],
+  // text: "",
+  // changeText: "",
+  page: "",
 };
 export const ctxt = React.createContext<AppState>(intialAppState);
 export const AppContextProvider = ctxt.Provider;

@@ -26,19 +26,20 @@ class App extends React.Component<object, AppState> {
     this.util = new Util();
     this.state = {
       UserInfo: {
-        UserName: "Sahar Behbahani",
+        UserName: "sa.behbahani",
         FirstName: "sahar",
-        LastName: "B",
+        LastName: "behbahani",
+        AvatarUrl: "http://hq-spsrv03:90/SiteAssets/pic.png",
+        JobStatus: "sharepoint developer",
+        EmailAddress: "sa.behbahani@digikala.com",
+        MobileNumber: "09120286220",
+        FullAddress: "saadatabad str, kaj sq,Tehran,Iran",
       },
       page: "Main",
       Tasks: [],
-      //  text: "",
-      //  changeText: this.changeText,
     };
   }
-  // public changeText = (newText: any) => {
-  //   this.setState({ text: newText });
-  // };
+
   public async componentDidMount() {
     const UserInfo = await this.AppRestService.getUserInfoDTO();
     const Tasks = await this.AppRestService.getUserTasks();

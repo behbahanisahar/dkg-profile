@@ -1,0 +1,26 @@
+.profile-img {
+  width: 80%;
+  border-radius: 50%;
+}
+.user-info {
+  text-align: left;
+  margin-top: 3%;
+  margin-left: -6%;
+}
+.jobstatus {
+  color: grey;
+}
+.detail {
+  font-weight: 200 !important;
+  text-align: left !important;
+  margin-top: 3% !important;
+}
+.detail-btn {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1.1rem 0;
+  width: 100%;
+  background-color: #f37a8a !important;
+  color: #dedfe0;
+  margin-top: 10%;
+}

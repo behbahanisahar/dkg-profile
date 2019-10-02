@@ -2,8 +2,9 @@ import * as React from "react";
 import { AppContextConsumer } from "../../../../components/App/AppState";
 import Launch from "@material-ui/icons/Launch";
 import UserTasks from "../../../../entities/UserTasks";
-import { MDBTableHead, MDBTableBody, MDBTable, MDBCard, MDBCardHeader, MDBCardBody } from "mdbreact";
+import { MDBTableBody, MDBTable, MDBCard, MDBCardHeader, MDBCardBody } from "mdbreact";
 import "../Tasks-cartable/TaskCartable.css";
+import { Typography } from "@material-ui/core";
 
 class TaskCartable extends React.Component<{}, object> {
   //  private tableHeaders: TableHeader[];
@@ -29,41 +30,15 @@ class TaskCartable extends React.Component<{}, object> {
                 <MDBTableBody>{this.onRenderHistoryRows(context.Tasks)}</MDBTableBody>
               </MDBTable>
             </Paper> */}
-            <div className="App">
-              <MDBCard className="mdb-card" narrow>
+            <div>
+              <MDBCard narrow>
                 <MDBCardHeader className="view view-cascade gradient-card-header task-header d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
-                  {/* <div>
-                    <MDBBtn outline rounded size="sm" color="white" className="px-2">
-                      <i className="fa fa-th-large mt-0"></i>
-                    </MDBBtn>
-                    <MDBBtn outline rounded size="sm" color="white" className="px-2">
-                      <i className="fa fa-columns mt-0"></i>
-                    </MDBBtn>
-                  </div> */}
-                  <a href="#" className="white-text mx-3">
-                    Tasks Cartable
-                  </a>
-                  {/* <div>
-                    <MDBBtn outline rounded size="sm" color="white" className="px-2">
-                      <i className="fas fa-pencil-alt mt-0"></i>
-                    </MDBBtn>
-                    <MDBBtn outline rounded size="sm" color="white" className="px-2">
-                      <i className="fas fa-times mt-0"></i>
-                    </MDBBtn>
-                    <MDBBtn outline rounded size="sm" color="white" className="px-2">
-                      <i className="fa fa-info-circle mt-0"></i>
-                    </MDBBtn>
-                  </div> */}
+                  <Typography variant="h6" id="tableTitle">
+                    Task Cartable
+                  </Typography>
                 </MDBCardHeader>
                 <MDBCardBody cascade>
-                  <MDBTable btn fixed>
-                    <MDBTableHead>
-                      <tr>
-                        <th>Row</th>
-                        <th>Module</th>
-                        <th>Url</th>
-                      </tr>
-                    </MDBTableHead>
+                  <MDBTable btn fixed hover borderless>
                     <MDBTableBody>{this.onRenderHistoryRows(context.Tasks)}</MDBTableBody>
                   </MDBTable>
                 </MDBCardBody>

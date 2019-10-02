@@ -3,9 +3,14 @@ import UserTasks from "../entities/UserTasks";
 
 export default class MockData {
   public static UserInfo: UserInfoDTO = {
-    UserName: "Sahar Behbahani",
+    UserName: "sa.behbahani",
     FirstName: "sahar",
-    LastName: "B",
+    LastName: "behbahani",
+    AvatarUrl: "http://hq-spsrv03:90/SiteAssets/pic.png",
+    JobStatus: "sharepoint developer",
+    EmailAddress: "sa.behbahani@digikala.com",
+    MobileNumber: "09120286220",
+    FullAddress: "saadatabad str, kaj sq,Tehran,Iran",
   };
 
   public static UserTasks: UserTasks[] = [

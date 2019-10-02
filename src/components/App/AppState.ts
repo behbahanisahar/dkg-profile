@@ -11,7 +11,16 @@ export default interface AppState {
 }
 
 const intialAppState: AppState = {
-  UserInfo: { UserName: "", FirstName: "", LastName: "" },
+  UserInfo: {
+    UserName: "",
+    FirstName: "",
+    LastName: "",
+    AvatarUrl: "",
+    JobStatus: "",
+    EmailAddress: "",
+    MobileNumber: "",
+    FullAddress: "",
+  },
   Tasks: [],
   // text: "",
   // changeText: "",

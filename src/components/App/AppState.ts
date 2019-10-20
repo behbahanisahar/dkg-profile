@@ -1,9 +1,7 @@
-import UserInfoDTO from "../../entities/UserProfile";
 import React from "react";
 import UserTasks from "../../entities/UserTasks";
 
 export default interface AppState {
-  UserInfo: UserInfoDTO;
   Tasks: UserTasks[];
   // text: string;
   // changeText: any;
@@ -11,16 +9,6 @@ export default interface AppState {
 }
 
 const intialAppState: AppState = {
-  UserInfo: {
-    UserName: "",
-    FirstName: "",
-    LastName: "",
-    AvatarUrl: "",
-    JobStatus: "",
-    EmailAddress: "",
-    MobileNumber: "",
-    FullAddress: "",
-  },
   Tasks: [],
   // text: "",
   // changeText: "",

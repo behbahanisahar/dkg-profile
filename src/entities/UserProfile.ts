@@ -7,4 +7,5 @@ export default interface UserInfoDTO {
   EmailAddress: string;
   MobileNumber: string;
   FullAddress: string;
+  BirthPlace: string;
 }

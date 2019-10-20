@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/interface-name-prefix */
 import { Box, Typography } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import Tab from "@material-ui/core/Tab";
@@ -6,6 +7,7 @@ import HelpIcon from "@material-ui/icons/Help";
 import PhoneIcon from "@material-ui/icons/Phone";
 import React from "react";
 import UserInfo from "./UserInfo/UserInfo";
+import { connect } from "react-redux";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -13,7 +15,10 @@ interface TabPanelProps {
   value: any;
 }
 
-const TabsContainer: React.FC = () => {
+const mapStateToProps = (state: any) => ({
+  UserInfo: state.UserInfo,
+});
+const MyTabsContainer: React.FC = () => {
   const [value, setValue] = React.useState(0);
   function TabProps(index: any) {
     return {
@@ -71,4 +76,8 @@ const TabsContainer: React.FC = () => {
   }
 };
 
+const TabsContainer = connect(
+  mapStateToProps,
+  null,
+)(MyTabsContainer);
 export default TabsContainer;

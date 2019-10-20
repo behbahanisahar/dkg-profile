@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/interface-name-prefix */
 import {
   Box,
   ExpansionPanel,
@@ -15,8 +16,13 @@ import Person from "@material-ui/icons/Person";
 import { MDBCol, MDBInput, MDBRow } from "mdbreact";
 import React from "react";
 import "./UserInfo.css";
+import UserInfoDTO from "../../../../../entities/UserProfile";
+import { connect } from "react-redux";
 
-const UserInfo: React.FunctionComponent = () => {
+interface IProps {
+  UserInfo: UserInfoDTO;
+}
+const MyUserInfo: React.FunctionComponent<IProps> = (props: IProps) => {
   interface TabPanelProps {
     children?: React.ReactNode;
     index: any;
@@ -94,7 +100,7 @@ const UserInfo: React.FunctionComponent = () => {
             <div>
               <MDBRow>
                 <MDBCol md="3">
-                  <MDBInput size="sm" label="FirstName" type="text" value="سحر" disabled={true} />
+                  <MDBInput size="sm" label="FirstName" type="text" value={props.UserInfo.JobStatus} disabled={true} />
                 </MDBCol>
                 <MDBCol md="3">
                   <MDBInput size="sm" label="LastName" value="بهبهانی" disabled={true} />
@@ -122,7 +128,7 @@ const UserInfo: React.FunctionComponent = () => {
               </MDBRow>
               <MDBRow>
                 <MDBCol md="3">
-                  <MDBInput size="sm" label="محل تولد" value="تهران" disabled={true} />
+                  <MDBInput size="sm" label="محل تولد" value={props.UserInfo.BirthPlace} disabled={true} />
                 </MDBCol>
                 <MDBCol md="3">
                   <MDBInput size="sm" label="مسلسل" value="-" disabled={true} />
@@ -199,4 +205,11 @@ const UserInfo: React.FunctionComponent = () => {
     </div>
   );
 };
+const mapStateToProps = (state: any) => ({
+  UserInfo: state.UserInfo,
+});
+const UserInfo = connect(
+  mapStateToProps,
+  null,
+)(MyUserInfo);
 export default UserInfo;

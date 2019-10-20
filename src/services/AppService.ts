@@ -13,7 +13,7 @@ export class AppRestService extends ServiceBase {
   public async getUserTasks(): Promise<any> {
     if (process.env.NODE_ENV === "production") {
       const items: any = await this.get("users/current/tasks");
-      console.log(items);
+
       return Promise.resolve(items.data);
     }
     return Promise.resolve(MockData.UserTasks);

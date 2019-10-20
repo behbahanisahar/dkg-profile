@@ -11,6 +11,7 @@ export default class MockData {
     EmailAddress: "sa.behbahani@digikala.com",
     MobileNumber: "09120286220",
     FullAddress: "saadatabad str, kaj sq,Tehran,Iran",
+    BirthPlace: "tehran",
   };
 
   public static UserTasks: UserTasks[] = [

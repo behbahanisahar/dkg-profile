@@ -1,45 +1,56 @@
-import { MDBCard, MDBCol, MDBContainer, MDBMask, MDBRow } from "mdbreact";
-import React from "react";
-// import Header from "./Header/Header";
-import TabsContainer from "./TabsContainer/TabsContainer";
-import { AppContextConsumer } from "../../../components/App/AppState";
-import "../../../features/profile/components/Header/Header.css";
+/* eslint-disable @typescript-eslint/interface-name-prefix */
+/* eslint-disable @typescript-eslint/explicit-member-accessibility */
+import * as React from "react";
+import { connect } from "react-redux";
+import { MDBContainer, MDBMask, MDBCard, MDBRow, MDBCol } from "mdbreact";
 import ProfilePhoto from "../../../assets/img/card-profile5-square.jpg";
+import UserInfoDTO from "../../../entities/UserProfile";
+import TabsContainer from "./TabsContainer/TabsContainer";
 
-const ProfileContainer: React.FC = () => {
-  return (
-    <div>
-      <AppContextConsumer>
-        {context => (
-          <>
-            {/* <Header /> */}
-            <MDBContainer md="12" xs="12">
-              <MDBMask overlay="black-light">
-                <MDBCard className="Container">
-                  <img src={ProfilePhoto} className="ProfileImage"></img>
-                  <MDBRow>
-                    <MDBCol md="4" />
-                    <MDBCol style={{ textAlign: "center" }}>
-                      <div>
-                        <b>
-                          <h3>{context.UserInfo.FirstName}</h3>
-                        </b>
-                        <p>{context.UserInfo.LastName}</p>
-                        <p>{context.UserInfo.UserName}</p>
-                      </div>
-                    </MDBCol>
-                    <MDBCol md="4" />
-                  </MDBRow>
+interface IProps {
+  UserInfo: UserInfoDTO;
+}
+const mapStateToProps = (state: any) => ({
+  UserInfo: state.UserInfo,
+});
 
-                  <TabsContainer />
-                </MDBCard>
-              </MDBMask>
-            </MDBContainer>
-          </>
-        )}
-      </AppContextConsumer>
-    </div>
-  );
-};
+class MyProfileContainer extends React.Component<IProps> {
+  constructor(props: IProps) {
+    super(props);
+  }
+  public async componentDidMount() {}
+  public render() {
+    return (
+      <div>
+        <MDBContainer md="12" xs="12">
+          <MDBMask overlay="black-light">
+            <MDBCard className="Container">
+              <img src={ProfilePhoto} className="ProfileImage"></img>
+              <MDBRow>
+                <MDBCol md="4" />
+                <MDBCol style={{ textAlign: "center" }}>
+                  <div>
+                    <b>
+                      <h3>{this.props.UserInfo.FirstName}</h3>
+                    </b>
+                    <p>{this.props.UserInfo.LastName}</p>
+                    <p>{this.props.UserInfo.UserName}</p>
+                  </div>
+                </MDBCol>
+                <MDBCol md="4" />
+              </MDBRow>
 
+              <TabsContainer />
+            </MDBCard>
+          </MDBMask>
+        </MDBContainer>
+      </div>
+    );
+  }
+}
+
+const ProfileContainer = connect(
+  mapStateToProps,
+  null,
+)(MyProfileContainer);
 export default ProfileContainer;

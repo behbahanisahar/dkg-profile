@@ -100,10 +100,10 @@ const MyUserInfo: React.FunctionComponent<IProps> = (props: IProps) => {
             <div>
               <MDBRow>
                 <MDBCol md="3">
-                  <MDBInput size="sm" label="FirstName" type="text" value={props.UserInfo.JobStatus} disabled={true} />
+                  <MDBInput size="sm" label="FirstName" type="text" value={props.UserInfo.FirstName} disabled={true} />
                 </MDBCol>
                 <MDBCol md="3">
-                  <MDBInput size="sm" label="LastName" value="بهبهانی" disabled={true} />
+                  <MDBInput size="sm" label="LastName" value={props.UserInfo.LastName} disabled={true} />
                 </MDBCol>
                 <MDBCol md="3">
                   <MDBInput size="sm" label="جنسیت" value="زن" disabled={true} />
@@ -183,10 +183,10 @@ const MyUserInfo: React.FunctionComponent<IProps> = (props: IProps) => {
                   <MDBInput size="sm" label="شماره منزل" value="213242434" disabled={true} />
                 </MDBCol>
                 <MDBCol md="3">
-                  <MDBInput size="sm" label="موبایل" value="09120286220" disabled={true} />
+                  <MDBInput size="sm" label="موبایل" value={props.UserInfo.MobileNumber} disabled={true} />
                 </MDBCol>
                 <MDBCol md="12">
-                  <MDBInput size="sm" label="آدرس" value=" lorem epsum   ddddsfdsfsdffsdfs " disabled={true} />
+                  <MDBInput size="sm" label="آدرس" value={props.UserInfo.FullAddress} disabled={true} />
                 </MDBCol>
               </MDBRow>
             </div>

@@ -307,8 +307,8 @@ const MyUserInfo: React.FunctionComponent<IProps> = (props: IProps) => {
 const mapStateToProps = (state: any) => ({
   UserInfo: state.UserInfo,
 });
-const UserInfo = connect(
+
+export default connect(
   mapStateToProps,
   null,
 )(MyUserInfo);
-export default UserInfo;

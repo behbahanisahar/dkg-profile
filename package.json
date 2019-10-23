@@ -6,7 +6,7 @@
     "node": ">=10.13.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "craco start",
     "start-dev-server": "craco start",
     "build": "craco build",
     "test": "node ./bin/sp-rest-proxy.js test-interactive",
@@ -85,6 +85,7 @@
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.6",
     "clipboard": "^2.0.4",
+    "craco-less": "^1.13.0",
     "lodash": "^4.17.14",
     "material-table": "^1.50.0",
     "mdbreact": "^4.19.1",

@@ -1,42 +1,9 @@
 require("dotenv").config();
 const { whenDev } = require("@craco/craco");
-const CracoRawLoaderPlugin = require("@baristalabs/craco-raw-loader");
-const ChangeCssFilename = require("@navikt/craco-plugins");
-const ChangeJsFilename = require("@navikt/craco-plugins");
+const CracoLessPlugin = require("craco-less");
 
 module.exports = {
-  webpack: {
-    hashFilenames: false,
-    extractText: {
-      filename: "myTest.css",
-    },
-    extra: {
-      output: {
-        filename: "MyTest.js",
-        chunkFilename: "MyTest.js",
-      },
-    },
-  },
-  plugins: [
-    {
-      plugin: CracoRawLoaderPlugin,
-      options: {
-        test: /\.foo$/,
-      },
-    },
-    {
-      plugin: ChangeCssFilename,
-      options: {
-        filename: "mytest.css",
-      },
-    },
-    {
-      plugin: ChangeJsFilename,
-      options: {
-        filename: "mytest.js", // optional, default filename: static/js/[name].js
-      },
-    },
-  ],
+  plugins: [{ plugin: CracoLessPlugin }],
   babel: [
     {
       plugins: [["@babel/plugin-proposal-decorators", { legacy: true }]],

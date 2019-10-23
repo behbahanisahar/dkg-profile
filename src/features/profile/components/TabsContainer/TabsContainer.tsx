@@ -8,6 +8,7 @@ import PhoneIcon from "@material-ui/icons/Phone";
 import React from "react";
 import UserInfo from "./UserInfo/UserInfo";
 import { connect } from "react-redux";
+import CompanyInfo from "./companyInfo/company-info";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -44,16 +45,18 @@ const MyTabsContainer: React.FC = () => {
             textColor="primary"
             aria-label="scrollable force tabs example"
           >
-            <Tab label="اطلاعات پرسنلی" icon={<PhoneIcon />} {...TabProps(0)} />
+            <Tab label="اطلاعات اصلی" icon={<PhoneIcon />} {...TabProps(0)} />
             {/* <Tab label="مدیران" icon={<FavoriteIcon />} {...TabProps(1)} />
             <Tab label="ارتقا" icon={<PersonPinIcon />} {...TabProps(2)} /> */}
-            <Tab label="مالی" icon={<HelpIcon />} {...TabProps(1)} />
+            <Tab label="اطلاعات شرکت" icon={<HelpIcon />} {...TabProps(1)} />
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
           <UserInfo />
         </TabPanel>
-        <TabPanel value={value} index={1}></TabPanel>
+        <TabPanel value={value} index={1}>
+          <CompanyInfo />
+        </TabPanel>
       </div>
     </div>
   );

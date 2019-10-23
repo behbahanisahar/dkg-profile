@@ -55,7 +55,7 @@ class MyAPP extends React.Component<IAppProps, AppState> {
     console.log(this.state);
     return (
       // <AppContextProvider value={this.state}>
-      <div className="kt-container  kt-grid__item kt-grid__item--fluid rtl">
+      <div className="kt-container  kt-grid__item kt-grid__item--fluid rtl mt-4">
         <MuiThemeProvider theme={theme}>
           <div>
             {this.state.page === Pages.Profile && <ProfileContainer />}

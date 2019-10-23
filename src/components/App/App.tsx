@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/explicit-member-accessibility */
-/* eslint-disable react/display-name */
-import "../../assets/css/Main.css";
-import "./App.css";
+import "./App.less";
+import "../../assets/css/dk-brand.less";
 import ProfileContainer from "../../features/profile/components/ProfileContainer";
 import React from "react";
 import Util from "../../util/utilities";
@@ -57,7 +55,7 @@ class MyAPP extends React.Component<IAppProps, AppState> {
     console.log(this.state);
     return (
       // <AppContextProvider value={this.state}>
-      <div>
+      <div className="kt-container  kt-grid__item kt-grid__item--fluid rtl">
         <MuiThemeProvider theme={theme}>
           <div>
             {this.state.page === Pages.Profile && <ProfileContainer />}

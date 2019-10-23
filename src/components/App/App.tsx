@@ -14,6 +14,9 @@ import { setUserInfo } from "../../redux/actions";
 import UserInfoDTO from "../../entities/UserProfile";
 
 const theme = createMuiTheme({
+  typography: {
+    fontFamily: ["IRANYekan", "Poppins", "sans-serif", '"Helvetica Neue"', "Arial", "sans-serif"].join(","),
+  },
   palette: {
     primary: { main: "#ef5661" },
   },

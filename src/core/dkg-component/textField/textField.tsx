@@ -1,4 +1,5 @@
 import * as React from "react";
+import "./textField.less";
 
 interface IProps {
   Persianlabel?: string;
@@ -13,9 +14,9 @@ export default class DkgTextField extends React.Component<IProps> {
 
   public render() {
     return (
-      <div className="kt-widget12__info">
-        <span className="kt-widget12__desc">{this.props.Persianlabel}</span>
-        <span className="kt-widget12__value">{this.props.value}</span>
+      <div className="text-container">
+        <span className="label">{this.props.Persianlabel}</span>
+        <span className="value">{this.props.value}</span>
       </div>
       // <div>
       //   <label>{this.props.label}</label>

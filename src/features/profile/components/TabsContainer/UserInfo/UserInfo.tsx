@@ -92,87 +92,83 @@ const MyUserInfo: React.FunctionComponent<IProps> = (props: IProps) => {
       <TabPanel value={value} index={0}>
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-            <div>
-              <Person color="primary" />
-              اطلاعات عمومی
-              <DkgTextField EnLabel="test label " Persianlabel="تست" value="test value" readonly={true} />
-            </div>
+            <Person color="primary" />
+            اطلاعات عمومی
+            <DkgTextField EnLabel="test label " Persianlabel="تست" value="test value" readonly={true} />
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <div>
-              <MDBRow>
-                <MDBCol md="3">
-                  <DkgTextField EnLabel="Name " Persianlabel="نام" value={props.UserInfo.FirstName} readonly={true} />
-                </MDBCol>
-                <MDBCol md="3">
-                  <DkgTextField
-                    EnLabel="LastName "
-                    Persianlabel="نام خانوادگی"
-                    value={props.UserInfo.LastName}
-                    readonly={true}
-                  />
-                </MDBCol>
-                <MDBCol md="3">
-                  <DkgTextField EnLabel="Gender " Persianlabel="جنسیت" value={props.UserInfo.Gender} readonly={true} />
-                </MDBCol>
-                <MDBCol md="3">
-                  <DkgTextField
-                    EnLabel="Father Name "
-                    Persianlabel="نام پدر"
-                    value={props.UserInfo.FatherName}
-                    readonly={true}
-                  />
-                </MDBCol>
-              </MDBRow>
-              <MDBRow className="mt-n1  mt-lg-0">
-                <MDBCol md="3">
-                  <DkgTextField EnLabel="Marital Status" Persianlabel="وضعیت تاهل" value="" readonly={true} />
-                </MDBCol>
-                <MDBCol md="3">
-                  <DkgTextField EnLabel="Number of child" Persianlabel="تعداد فرزند" value="" readonly={true} />
-                </MDBCol>
-                <MDBCol md="3">
-                  <DkgTextField EnLabel="Military status" Persianlabel="وضعیت خدمت" value="" readonly={true} />
-                </MDBCol>
-                <MDBCol md="3">
-                  <DkgTextField
-                    EnLabel="Date of Birth"
-                    Persianlabel="تاریخ تولد"
-                    value={props.UserInfo.BirthDate}
-                    readonly={true}
-                  />
-                </MDBCol>
-              </MDBRow>
-              <MDBRow>
-                <MDBCol md="3">
-                  <DkgTextField
-                    EnLabel="place of Birth"
-                    Persianlabel="محل تولد"
-                    value={props.UserInfo.BirthPlace}
-                    readonly={true}
-                  />
-                </MDBCol>
-                <MDBCol md="3">
-                  <DkgTextField EnLabel="" Persianlabel="مسلسل" value="" readonly={true} />
-                </MDBCol>
-                <MDBCol md="3">
-                  <DkgTextField
-                    EnLabel="Birth Id"
-                    Persianlabel="شماره شناسنامه"
-                    value={props.UserInfo.BirthId}
-                    readonly={true}
-                  />
-                </MDBCol>
-                <MDBCol md="3">
-                  <DkgTextField
-                    EnLabel="National Id"
-                    Persianlabel="کد ملی"
-                    value={props.UserInfo.NationalId}
-                    readonly={true}
-                  />
-                </MDBCol>
-              </MDBRow>
-            </div>
+            <MDBRow>
+              <MDBCol md="3">
+                <DkgTextField EnLabel="Name " Persianlabel="نام" value={props.UserInfo.FirstName} readonly={true} />
+              </MDBCol>
+              <MDBCol md="3">
+                <DkgTextField
+                  EnLabel="LastName "
+                  Persianlabel="نام خانوادگی"
+                  value={props.UserInfo.LastName}
+                  readonly={true}
+                />
+              </MDBCol>
+              <MDBCol md="3">
+                <DkgTextField EnLabel="Gender " Persianlabel="جنسیت" value={props.UserInfo.Gender} readonly={true} />
+              </MDBCol>
+              <MDBCol md="3">
+                <DkgTextField
+                  EnLabel="Father Name "
+                  Persianlabel="نام پدر"
+                  value={props.UserInfo.FatherName}
+                  readonly={true}
+                />
+              </MDBCol>
+            </MDBRow>
+            <MDBRow className="mt-n1  mt-lg-0">
+              <MDBCol md="3">
+                <DkgTextField EnLabel="Marital Status" Persianlabel="وضعیت تاهل" value="" readonly={true} />
+              </MDBCol>
+              <MDBCol md="3">
+                <DkgTextField EnLabel="Number of child" Persianlabel="تعداد فرزند" value="" readonly={true} />
+              </MDBCol>
+              <MDBCol md="3">
+                <DkgTextField EnLabel="Military status" Persianlabel="وضعیت خدمت" value="" readonly={true} />
+              </MDBCol>
+              <MDBCol md="3">
+                <DkgTextField
+                  EnLabel="Date of Birth"
+                  Persianlabel="تاریخ تولد"
+                  value={props.UserInfo.BirthDate}
+                  readonly={true}
+                />
+              </MDBCol>
+            </MDBRow>
+            <MDBRow>
+              <MDBCol md="3">
+                <DkgTextField
+                  EnLabel="place of Birth"
+                  Persianlabel="محل تولد"
+                  value={props.UserInfo.BirthPlace}
+                  readonly={true}
+                />
+              </MDBCol>
+              <MDBCol md="3">
+                <DkgTextField EnLabel="" Persianlabel="مسلسل" value="" readonly={true} />
+              </MDBCol>
+              <MDBCol md="3">
+                <DkgTextField
+                  EnLabel="Birth Id"
+                  Persianlabel="شماره شناسنامه"
+                  value={props.UserInfo.BirthId}
+                  readonly={true}
+                />
+              </MDBCol>
+              <MDBCol md="3">
+                <DkgTextField
+                  EnLabel="National Id"
+                  Persianlabel="کد ملی"
+                  value={props.UserInfo.NationalId}
+                  readonly={true}
+                />
+              </MDBCol>
+            </MDBRow>
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <ExpansionPanel>
@@ -183,22 +179,20 @@ const MyUserInfo: React.FunctionComponent<IProps> = (props: IProps) => {
             </div>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <div>
-              <MDBRow>
-                <MDBCol md="3">
-                  <DkgTextField EnLabel="Diploma" Persianlabel="مدرک تحصیلی" value="" readonly={true} />
-                </MDBCol>
-                <MDBCol md="3">
-                  <DkgTextField EnLabel="Major" Persianlabel="رشته تحصیلی" value="" readonly={true} />
-                </MDBCol>
-                <MDBCol md="3">
-                  <DkgTextField EnLabel="Orientation" Persianlabel="گرایش " value="" readonly={true} />
-                </MDBCol>
-                <MDBCol md="3">
-                  <DkgTextField EnLabel="Education Place" Persianlabel="محل تحصیل" value="" readonly={true} />
-                </MDBCol>
-              </MDBRow>
-            </div>
+            <MDBRow>
+              <MDBCol md="3">
+                <DkgTextField EnLabel="Diploma" Persianlabel="مدرک تحصیلی" value="" readonly={true} />
+              </MDBCol>
+              <MDBCol md="3">
+                <DkgTextField EnLabel="Major" Persianlabel="رشته تحصیلی" value="" readonly={true} />
+              </MDBCol>
+              <MDBCol md="3">
+                <DkgTextField EnLabel="Orientation" Persianlabel="گرایش " value="" readonly={true} />
+              </MDBCol>
+              <MDBCol md="3">
+                <DkgTextField EnLabel="Education Place" Persianlabel="محل تحصیل" value="" readonly={true} />
+              </MDBCol>
+            </MDBRow>
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <ExpansionPanel>

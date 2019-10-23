@@ -6,7 +6,7 @@ interface IProps {
   name: string;
   UserInfo: UserInfoDTO;
 }
-class Sidebar extends React.Component<IProps> {
+class SidebarComponent extends React.Component<IProps> {
   public render() {
     return (
       <div className="kt-portlet kt-portlet--height-fluid">
@@ -80,7 +80,8 @@ class Sidebar extends React.Component<IProps> {
 const mapStateToProps = (state: any) => ({
   UserInfo: state.UserInfo,
 });
-export default connect(
+const Sidebar = connect(
   mapStateToProps,
   null,
-)(Sidebar);
+)(SidebarComponent);
+export default Sidebar;

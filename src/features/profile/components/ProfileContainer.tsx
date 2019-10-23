@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/interface-name-prefix */
-/* eslint-disable @typescript-eslint/explicit-member-accessibility */
 import * as React from "react";
 import { connect } from "react-redux";
 import { MDBContainer, MDBMask, MDBCard, MDBRow, MDBCol } from "mdbreact";

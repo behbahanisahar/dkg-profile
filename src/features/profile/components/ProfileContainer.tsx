@@ -4,6 +4,7 @@ import { MDBContainer, MDBMask, MDBCard, MDBRow, MDBCol } from "mdbreact";
 import ProfilePhoto from "../../../assets/img/card-profile5-square.jpg";
 import UserInfoDTO from "../../../entities/UserProfile";
 import TabsContainer from "./TabsContainer/TabsContainer";
+import Sidebar from "../../../core/sidebar/sidebar";
 
 interface IProps {
   UserInfo: UserInfoDTO;
@@ -19,30 +20,34 @@ class MyProfileContainer extends React.Component<IProps> {
   public async componentDidMount() {}
   public render() {
     return (
-      <div>
-        <MDBContainer md="12" xs="12">
-          <MDBMask overlay="black-light">
-            <MDBCard className="Container">
-              <img src={ProfilePhoto} className="ProfileImage"></img>
-              <MDBRow>
-                <MDBCol md="4" />
-                <MDBCol style={{ textAlign: "center" }}>
-                  <div>
-                    <b>
-                      <h3>{this.props.UserInfo.FirstName}</h3>
-                    </b>
-                    <p>{this.props.UserInfo.LastName}</p>
-                    <p>{this.props.UserInfo.UserName}</p>
-                  </div>
-                </MDBCol>
-                <MDBCol md="4" />
-              </MDBRow>
+      <>
+        <MDBContainer>
+          <MDBCol md="4">
+            <Sidebar name="" />
+          </MDBCol>
+          <MDBCol md="8">
+            <MDBMask overlay="black-light">
+              <MDBCard className="Container">
+                <img src={ProfilePhoto} className="ProfileImage"></img>
+                <MDBRow>
+                  <MDBCol md="4" />
+                  <MDBCol style={{ textAlign: "center" }}>
+                    <div>
+                      <b>
+                        <h3>{this.props.UserInfo.FirstName}</h3>
+                      </b>
+                      <p>{this.props.UserInfo.LastName}</p>
+                    </div>
+                  </MDBCol>
+                  <MDBCol md="4" />
+                </MDBRow>
 
-              <TabsContainer />
-            </MDBCard>
-          </MDBMask>
+                <TabsContainer />
+              </MDBCard>
+            </MDBMask>
+          </MDBCol>
         </MDBContainer>
-      </div>
+      </>
     );
   }
 }

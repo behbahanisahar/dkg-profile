@@ -1,9 +1,12 @@
 import * as React from "react";
+import { connect } from "react-redux";
+import UserInfoDTO from "../../entities/UserProfile";
 
 interface IProps {
   name: string;
+  UserInfo: UserInfoDTO;
 }
-export default class Sidebar extends React.Component<IProps> {
+class Sidebar extends React.Component<IProps> {
   public render() {
     return (
       <div className="kt-portlet kt-portlet--height-fluid">
@@ -17,15 +20,12 @@ export default class Sidebar extends React.Component<IProps> {
           <div className="kt-widget kt-widget--user-profile-1">
             <div className="kt-widget__head">
               <div className="kt-widget__media">
-                <img
-                  src="http://hq-spsrv03:90/Apps/Profile/static/media/card-profile5-square.963e8393.jpg"
-                  alt="image"
-                />
+                <img src={this.props.UserInfo.AvatarUrl} alt="image" />
               </div>
               <div className="kt-widget__content">
                 <div className="kt-widget__section">
                   <a href="#" className="kt-widget__username">
-                    علی نوش آبادی
+                    {this.props.UserInfo.SPLatinFullName}
                     <i className="flaticon2-correct kt-font-success"></i>
                   </a>
                   <span className="kt-widget__subtitle">Head of Development</span>
@@ -77,3 +77,10 @@ export default class Sidebar extends React.Component<IProps> {
     );
   }
 }
+const mapStateToProps = (state: any) => ({
+  UserInfo: state.UserInfo,
+});
+export default connect(
+  mapStateToProps,
+  null,
+)(Sidebar);

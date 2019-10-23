@@ -18,6 +18,7 @@ import React from "react";
 import "./UserInfo.css";
 import UserInfoDTO from "../../../../../entities/UserProfile";
 import { connect } from "react-redux";
+import DkgTextField from "../../../../../core/dkg-component/textField/textField";
 
 interface IProps {
   UserInfo: UserInfoDTO;
@@ -94,6 +95,7 @@ const MyUserInfo: React.FunctionComponent<IProps> = (props: IProps) => {
             <div>
               <Person color="primary" />
               اطلاعات عمومی
+              <DkgTextField label="test label " value="test value" readonly={true} />
             </div>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>

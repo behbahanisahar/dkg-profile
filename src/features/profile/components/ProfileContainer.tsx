@@ -34,7 +34,6 @@ class MyProfileContainer extends React.Component<IProps> {
                       <h3>{this.props.UserInfo.FirstName}</h3>
                     </b>
                     <p>{this.props.UserInfo.LastName}</p>
-                    <p>{this.props.UserInfo.UserName}</p>
                   </div>
                 </MDBCol>
                 <MDBCol md="4" />

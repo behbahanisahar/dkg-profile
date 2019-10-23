@@ -3,7 +3,6 @@ import UserTasks from "../entities/UserTasks";
 
 export default class MockData {
   public static UserInfo: UserInfoDTO = {
-    UserName: "sa.behbahani",
     FirstName: "sahar",
     LastName: "behbahani",
     AvatarUrl: "http://hq-spsrv03:90/SiteAssets/pic.png",

@@ -20,15 +20,21 @@ class SidebarComponent extends React.Component<IProps> {
           <div className="kt-widget kt-widget--user-profile-1">
             <div className="kt-widget__head">
               <div className="kt-widget__media">
-                <img src={this.props.UserInfo.AvatarUrl} alt="image" />
+                {this.props.UserInfo.AvatarUrl === null && (
+                  <p className="NoAvatar">{this.props.UserInfo.AvatarTextPlaceholder}</p>
+                )}
+                {this.props.UserInfo.AvatarUrl !== null && (
+                  <img alt={this.props.UserInfo.Title} src={this.props.UserInfo.AvatarUrl} />
+                )}
+                {/* <img src={this.props.UserInfo.AvatarUrl} alt="image" /> */}
               </div>
               <div className="kt-widget__content">
                 <div className="kt-widget__section">
                   <a href="#" className="kt-widget__username">
-                    {this.props.UserInfo.SPLatinFullName}
+                    {this.props.UserInfo.FirstName} {this.props.UserInfo.LastName}
                     <i className="flaticon2-correct kt-font-success"></i>
                   </a>
-                  <span className="kt-widget__subtitle">Head of Development</span>
+                  <span className="kt-widget__subtitle"> {this.props.UserInfo.SPLatinFullName}</span>
                 </div>
 
                 <div className="kt-widget__action">
@@ -47,7 +53,7 @@ class SidebarComponent extends React.Component<IProps> {
                 <div className="kt-widget__info">
                   <span className="kt-widget__label">پست الکترونیک:</span>
                   <a href="#" className="kt-widget__data">
-                    matt@fifestudios.com
+                    {this.props.UserInfo.EmailAddress}
                   </a>
                 </div>
                 <div className="kt-widget__info">
@@ -57,8 +63,8 @@ class SidebarComponent extends React.Component<IProps> {
                   </a>
                 </div>
                 <div className="kt-widget__info">
-                  <span className="kt-widget__label">Location:</span>
-                  <span className="kt-widget__data">Melbourne</span>
+                  <span className="kt-widget__label">واحد سازمانی:</span>
+                  <span className="kt-widget__data"> {this.props.UserInfo.Department}</span>
                 </div>
               </div>
               <div className="kt-widget__items">

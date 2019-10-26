@@ -20,18 +20,26 @@ class SidebarComponent extends React.Component<IProps> {
           <div className="kt-widget kt-widget--user-profile-1">
             <div className="kt-widget__head">
               <div className="kt-widget__media">
-                <img src={this.props.UserInfo.AvatarUrl} alt="image" />
+                {this.props.UserInfo.AvatarUrl === null && (
+                  <div className="kt-media kt-media--success kt-media--lg">
+                    <span>{this.props.UserInfo.AvatarTextPlaceholder}</span>
+                  </div>
+                )}
+                {this.props.UserInfo.AvatarUrl !== null && (
+                  <img alt={this.props.UserInfo.Title} src={this.props.UserInfo.AvatarUrl} />
+                )}
+                {/* <img src={this.props.UserInfo.AvatarUrl} alt="image" /> */}
               </div>
               <div className="kt-widget__content">
                 <div className="kt-widget__section">
                   <a href="#" className="kt-widget__username">
-                    {this.props.UserInfo.SPLatinFullName}
+                    {this.props.UserInfo.FirstName} {this.props.UserInfo.LastName}
                     <i className="flaticon2-correct kt-font-success"></i>
                   </a>
-                  <span className="kt-widget__subtitle">Head of Development</span>
+                  <span className="kt-widget__subtitle"> {this.props.UserInfo.SPLatinFullName}</span>
                 </div>
 
-                <div className="kt-widget__action">
+                {/* <div className="kt-widget__action">
                   <button type="button" className="btn btn-info btn-sm">
                     تست
                   </button>
@@ -39,7 +47,7 @@ class SidebarComponent extends React.Component<IProps> {
                   <button type="button" className="btn btn-success btn-sm">
                     تست
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="kt-widget__body">
@@ -47,7 +55,7 @@ class SidebarComponent extends React.Component<IProps> {
                 <div className="kt-widget__info">
                   <span className="kt-widget__label">پست الکترونیک:</span>
                   <a href="#" className="kt-widget__data">
-                    matt@fifestudios.com
+                    {this.props.UserInfo.EmailAddress}
                   </a>
                 </div>
                 <div className="kt-widget__info">
@@ -57,8 +65,8 @@ class SidebarComponent extends React.Component<IProps> {
                   </a>
                 </div>
                 <div className="kt-widget__info">
-                  <span className="kt-widget__label">Location:</span>
-                  <span className="kt-widget__data">Melbourne</span>
+                  <span className="kt-widget__label">واحد سازمانی:</span>
+                  <span className="kt-widget__data"> {this.props.UserInfo.Department}</span>
                 </div>
               </div>
               <div className="kt-widget__items">

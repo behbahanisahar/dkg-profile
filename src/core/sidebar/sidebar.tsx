@@ -21,7 +21,9 @@ class SidebarComponent extends React.Component<IProps> {
             <div className="kt-widget__head">
               <div className="kt-widget__media">
                 {this.props.UserInfo.AvatarUrl === null && (
-                  <p className="NoAvatar">{this.props.UserInfo.AvatarTextPlaceholder}</p>
+                  <div className="kt-media kt-media--success kt-media--lg">
+                    <span>{this.props.UserInfo.AvatarTextPlaceholder}</span>
+                  </div>
                 )}
                 {this.props.UserInfo.AvatarUrl !== null && (
                   <img alt={this.props.UserInfo.Title} src={this.props.UserInfo.AvatarUrl} />
@@ -37,7 +39,7 @@ class SidebarComponent extends React.Component<IProps> {
                   <span className="kt-widget__subtitle"> {this.props.UserInfo.SPLatinFullName}</span>
                 </div>
 
-                <div className="kt-widget__action">
+                {/* <div className="kt-widget__action">
                   <button type="button" className="btn btn-info btn-sm">
                     تست
                   </button>
@@ -45,7 +47,7 @@ class SidebarComponent extends React.Component<IProps> {
                   <button type="button" className="btn btn-success btn-sm">
                     تست
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="kt-widget__body">

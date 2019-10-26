@@ -1,5 +1,5 @@
 import * as React from "react";
-import { AppContextConsumer } from "../../../../components/App/AppState";
+import { AppContextConsumer } from "../../../../App/AppState";
 import Launch from "@material-ui/icons/Launch";
 import UserTasks from "../../../../entities/UserTasks";
 import { MDBTableBody, MDBTable, MDBCard, MDBCardHeader, MDBCardBody } from "mdbreact";

@@ -3,12 +3,14 @@ import { Box, Typography } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
-import HelpIcon from "@material-ui/icons/Help";
-import PhoneIcon from "@material-ui/icons/Phone";
+import Business from "@material-ui/icons/Business";
+import ListAlt from "@material-ui/icons/ListAlt";
+import Contacts from "@material-ui/icons/Contacts";
 import React from "react";
 import UserInfo from "./UserInfo/UserInfo";
 import { connect } from "react-redux";
-import CompanyInfo from "./companyInfo/company-info";
+import CompanyInfo from "./CompanyInfo/company-info";
+import ContractInfo from "./ContractInfo/Contract-Info";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -45,10 +47,11 @@ const MyTabsContainer: React.FC = () => {
             textColor="primary"
             aria-label="scrollable force tabs example"
           >
-            <Tab label="اطلاعات اصلی" icon={<PhoneIcon />} {...TabProps(0)} />
+            <Tab label="اطلاعات اصلی" icon={<Contacts />} {...TabProps(0)} />
             {/* <Tab label="مدیران" icon={<FavoriteIcon />} {...TabProps(1)} />
             <Tab label="ارتقا" icon={<PersonPinIcon />} {...TabProps(2)} /> */}
-            <Tab label="اطلاعات شرکت" icon={<HelpIcon />} {...TabProps(1)} />
+            <Tab label="اطلاعات شرکت" icon={<Business />} {...TabProps(1)} />
+            <Tab label="اطلاعات قرارداد" icon={<ListAlt />} {...TabProps(2)} />
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
@@ -56,6 +59,9 @@ const MyTabsContainer: React.FC = () => {
         </TabPanel>
         <TabPanel value={value} index={1}>
           <CompanyInfo />
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          <ContractInfo />
         </TabPanel>
       </div>
     </div>

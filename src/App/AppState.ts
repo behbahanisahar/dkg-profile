@@ -1,5 +1,5 @@
 import React from "react";
-import UserTasks from "../../entities/UserTasks";
+import UserTasks from "../entities/UserTasks";
 
 export default interface AppState {
   Tasks: UserTasks[];

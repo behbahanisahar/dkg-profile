@@ -1,10 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/interface-name-prefix */
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import Book from "@material-ui/icons/Book";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import Navigation from "@material-ui/icons/Navigation";
-import Person from "@material-ui/icons/Person";
 import { MDBCol, MDBRow } from "mdbreact";
 import React from "react";
 import "./UserInfo.css";
@@ -34,7 +32,6 @@ const MyUserInfo: React.FunctionComponent<IProps> = (props: IProps) => {
     <div className={classes.root}>
       <ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-          <Person color="primary" />
           اطلاعات عمومی
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
@@ -64,19 +61,19 @@ const MyUserInfo: React.FunctionComponent<IProps> = (props: IProps) => {
           </MDBRow>
           <MDBRow className="mt-n1  mt-lg-0">
             <MDBCol md="3">
-              <DkgTextField EnLabel="Marital Status" Persianlabel="وضعیت تاهل" value="" readonly={true} />
+              <DkgTextField EnLabel="Marital Status" Persianlabel="وضعیت تاهل" value="--" readonly={true} />
             </MDBCol>
             <MDBCol md="3">
-              <DkgTextField EnLabel="Number of child" Persianlabel="تعداد فرزند" value="" readonly={true} />
+              <DkgTextField EnLabel="Number of child" Persianlabel="تعداد فرزند" value="--" readonly={true} />
             </MDBCol>
             <MDBCol md="3">
-              <DkgTextField EnLabel="Military status" Persianlabel="وضعیت خدمت" value="" readonly={true} />
+              <DkgTextField EnLabel="Military status" Persianlabel="وضعیت خدمت" value="--" readonly={true} />
             </MDBCol>
             <MDBCol md="3">
               <DkgTextField
                 EnLabel="Date of Birth"
                 Persianlabel="تاریخ تولد"
-                value={props.UserInfo.BirthDate}
+                value={props.UserInfo.StrBirthDate}
                 readonly={true}
               />
             </MDBCol>
@@ -89,9 +86,6 @@ const MyUserInfo: React.FunctionComponent<IProps> = (props: IProps) => {
                 value={props.UserInfo.BirthPlace}
                 readonly={true}
               />
-            </MDBCol>
-            <MDBCol md="3">
-              <DkgTextField EnLabel="" Persianlabel="مسلسل" value="" readonly={true} />
             </MDBCol>
             <MDBCol md="3">
               <DkgTextField
@@ -114,40 +108,34 @@ const MyUserInfo: React.FunctionComponent<IProps> = (props: IProps) => {
       </ExpansionPanel>
       <ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2a-content" id="panel2a-header">
-          <div>
-            <Book color="primary" />
-            اطلاعات تحصیلی
-          </div>
+          <div>اطلاعات تحصیلی</div>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <MDBRow>
             <MDBCol md="3">
-              <DkgTextField EnLabel="Diploma" Persianlabel="مدرک تحصیلی" value="" readonly={true} />
+              <DkgTextField EnLabel="Diploma" Persianlabel="مدرک تحصیلی" value="--" readonly={true} />
             </MDBCol>
             <MDBCol md="3">
-              <DkgTextField EnLabel="Major" Persianlabel="رشته تحصیلی" value="" readonly={true} />
+              <DkgTextField EnLabel="Major" Persianlabel="رشته تحصیلی" value="--" readonly={true} />
             </MDBCol>
             <MDBCol md="3">
-              <DkgTextField EnLabel="Orientation" Persianlabel="گرایش " value="" readonly={true} />
+              <DkgTextField EnLabel="Orientation" Persianlabel="گرایش " value="--" readonly={true} />
             </MDBCol>
             <MDBCol md="3">
-              <DkgTextField EnLabel="Education Place" Persianlabel="محل تحصیل" value="" readonly={true} />
+              <DkgTextField EnLabel="Education Place" Persianlabel="محل تحصیل" value="--" readonly={true} />
             </MDBCol>
           </MDBRow>
         </ExpansionPanelDetails>
       </ExpansionPanel>
       <ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2a-content" id="panel2a-header">
-          <div>
-            <Navigation color="primary" />
-            اطلاعات محل سکونت
-          </div>
+          <div>اطلاعات محل سکونت</div>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <div>
             <MDBRow>
               <MDBCol md="3">
-                <DkgTextField EnLabel="Telephone" Persianlabel="شماره منزل" value="" readonly={true} />
+                <DkgTextField EnLabel="Telephone" Persianlabel="شماره منزل" value="--" readonly={true} />
               </MDBCol>
               <MDBCol md="3">
                 <DkgTextField

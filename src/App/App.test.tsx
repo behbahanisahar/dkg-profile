@@ -1,11 +1,11 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { setupFixture } from "../../util/testUtils";
-import App from "./";
+import { setupFixture } from "../util/testUtils";
+import App from ".";
 
-import { SPService } from "../../services/SPService";
-import { AppRestService } from "../../services/AppService";
-import * as AppContext from "../../AppContext";
+import { SPService } from "../services/SPService";
+import { AppRestService } from "../services/AppService";
+import * as AppContext from "../AppContext";
 
 // Create the mock of SPService.getRootWebTitle
 const MockSPService = jest.fn<SPService, any>(() => ({

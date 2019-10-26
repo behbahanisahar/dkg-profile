@@ -1,17 +1,17 @@
 import "./App.less";
-import "../../assets/css/dk-brand.less";
-import ProfileContainer from "../../features/profile/components/ProfileContainer";
+import "../assets/css/dk-brand.less";
+import ProfileContainer from "../features/profile/components/ProfileContainer";
 import React from "react";
-import Util from "../../util/utilities";
+import Util from "../util/utilities";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import AppRestService from "../../services/AppService";
+import AppRestService from "../services/AppService";
 import AppState from "./AppState";
-import Pages from "../../entities/Pages";
-import MainPage from "../../features/mainPage/components/MainPage/MainPage";
+import Pages from "../entities/Pages";
+import MainPage from "../features/mainPage/components/MainPage/MainPage";
 import { connect } from "react-redux";
 import IAppProps from "./AppProps";
-import { setUserInfo } from "../../redux/actions";
-import UserInfoDTO from "../../entities/UserProfile";
+import { setUserInfo } from "../redux/actions";
+import UserInfoDTO from "../entities/UserProfile";
 
 const theme = createMuiTheme({
   typography: {
